@@ -6,8 +6,8 @@ android {
         applicationId "com.learn.bsdiff"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
         externalNativeBuild {
             cmake {
                 cppFlags ""
