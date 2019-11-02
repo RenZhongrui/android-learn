@@ -1,0 +1,1 @@
+bsdiff.exe old.apk new.apk patch
