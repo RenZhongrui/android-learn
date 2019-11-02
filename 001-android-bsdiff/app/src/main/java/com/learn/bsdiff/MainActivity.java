@@ -60,10 +60,15 @@ public class MainActivity extends AppCompatActivity {
         new AsyncTask<Void, Void, File>() {
             @Override
             protected File doInBackground(Void... voids) {
+                // 获取当前安装包路径 /data/app/com.learn.bsdiff-vkZp27c33gznzKVqB5pztg==/base.apk
+                // String path = getApplicationContext().getPackageResourcePath(); 或
                 String oldApk = getApplicationInfo().sourceDir;
                 Log.e("oldApk", "doInBackground: " + oldApk );
+                // 下载获取差分包路径
                 String patch = new File(Environment.getExternalStorageDirectory() + File.separator + "/download/patch").getAbsolutePath();
+                // 创建新版本的安装包
                 String output = createNewApk().getAbsolutePath();
+                // 调用native方法
                 bsPatch(oldApk, patch, output);
                 return new File(output);
             }
@@ -77,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         }.execute();
     }
 
+    // 合成新的apk
     private File createNewApk() {
         File newApk = new File(Environment.getExternalStorageDirectory() + File.separator + "/download/bspatch.apk");
         if (!newApk.exists()) {
