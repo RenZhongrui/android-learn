@@ -12,7 +12,6 @@ import com.lzy.okserver.download.DownloadTask;
 
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -26,7 +25,6 @@ public class BaseDownloadActivity extends AppCompatActivity implements View.OnCl
     private final static String TAG = "MainActivity";
     private Button btn_start, btn_pause, btn_continue, btn_delete;
     private TextView folder;
-    private List<DownloadTask> values;
     public static final int type = 0;
     public static final int TYPE_ALL = 0;
     public static final int TYPE_FINISH = 1;
@@ -68,12 +66,10 @@ public class BaseDownloadActivity extends AppCompatActivity implements View.OnCl
         btn_start.setOnClickListener(this);
         btn_pause.setOnClickListener(this);
         btn_continue.setOnClickListener(this);
-        //okDownload.addOnAllTaskEndListener(onAllTaskEndListener);
     }
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()) {
             case R.id.btn_start:
                 // 设置下载参数
@@ -110,13 +106,19 @@ public class BaseDownloadActivity extends AppCompatActivity implements View.OnCl
                 }
                 break;
             case R.id.btn_continue: // 继续下载
+                List<DownloadTask> tasks2 = OkDownload.restore(DownloadManager.getInstance().getDownloading());
+                DownloadTask task2 = tasks2.get(0);
+                Progress progress2 = task2.progress;
+                int status2 = progress2.status;
                 // 如果当前是下载状态，则暂停下载
-            /*    if (Progress.PAUSE == status || Progress.NONE == status || Progress.ERROR == status) {
-                    task.start();
-                }*/
+                if (Progress.PAUSE == status2 || Progress.NONE == status2 || Progress.ERROR == status2) {
+                    task2.start();
+                }
                 break;
             case R.id.btn_delete:
-                //task.remove();
+                List<DownloadTask> tasks3 = OkDownload.restore(DownloadManager.getInstance().getDownloading());
+                DownloadTask task3 = tasks3.get(0);
+                task3.remove();
                 break;
         }
     }

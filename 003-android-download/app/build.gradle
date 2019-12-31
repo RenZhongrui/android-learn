@@ -23,4 +23,5 @@ dependencies {
     implementation "com.android.support:appcompat-v7:26.1.0"
     implementation project(":okgo")
     implementation project(":okserver")
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AllDownloadActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_all_download"
+            android:text="全部下载"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_all_pause"
+            android:text="全部暂停"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_all_continue"
+            android:text="全部继续"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_all_remove"
+            android:text="全部移除"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <com.learn.download.NumberProgressBar
+        android:id="@+id/progress_bar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:progress_reached_bar_height="1.5dp"
+        app:progress_reached_color="#3498DB"
+        app:progress_text_color="#3498DB"
+        app:progress_text_size="10sp"
+        app:progress_unreached_bar_height="0.75dp"
+        app:progress_unreached_color="#CCCCCC"/>
+
+    <com.learn.download.NumberProgressBar
+        android:id="@+id/progress_bar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:progress_reached_bar_height="1.5dp"
+        app:progress_reached_color="#3498DB"
+        app:progress_text_color="#3498DB"
+        app:progress_text_size="10sp"
+        app:progress_unreached_bar_height="0.75dp"
+        app:progress_unreached_color="#CCCCCC"/>
+
+
+</LinearLayout>

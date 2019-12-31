@@ -18,7 +18,7 @@ import com.lzy.okserver.task.XExecutor;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int REQUEST_PERMISSION_STORAGE = 0x01;
-    private Button base_download;
+    private Button base_download, all_download;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         checkSDCardPermission();
         base_download = findViewById(R.id.base_download);
+        all_download = findViewById(R.id.all_download);
         base_download.setOnClickListener(this);
+        all_download.setOnClickListener(this);
     }
 
 
@@ -57,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.base_download:
                 intent.setClass(MainActivity.this, BaseDownloadActivity.class);
+                break;
+            case R.id.all_download:
+                intent.setClass(MainActivity.this, AllDownloadActivity.class);
                 break;
         }
         startActivity(intent);
