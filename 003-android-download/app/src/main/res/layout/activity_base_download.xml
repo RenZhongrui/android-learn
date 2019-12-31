@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_start"
+        android:text="开始下载任务"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_pause"
+        android:text="暂停下载任务"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_continue"
+        android:text="继续下载任务"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:text="删除下载任务"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/folder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.learn.download.NumberProgressBar
+        android:id="@+id/pbProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:progress_reached_bar_height="1.5dp"
+        app:progress_reached_color="#3498DB"
+        app:progress_text_color="#3498DB"
+        app:progress_text_size="10sp"
+        app:progress_unreached_bar_height="0.75dp"
+        app:progress_unreached_color="#CCCCCC"/>
+
+</LinearLayout>

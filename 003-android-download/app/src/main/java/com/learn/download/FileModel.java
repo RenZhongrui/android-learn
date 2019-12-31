@@ -27,7 +27,7 @@ import java.util.Random;
  * 修订历史：
  * ================================================
  */
-public class ApkModel implements Serializable {
+public class FileModel implements Serializable {
     private static final long serialVersionUID = 2072893447591548402L;
 
     public String name;
@@ -35,7 +35,7 @@ public class ApkModel implements Serializable {
     public String iconUrl;
     public int priority;
 
-    public ApkModel() {
+    public FileModel() {
         Random random = new Random();
         priority = random.nextInt(100);
     }

@@ -5,25 +5,15 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btn_start"
-        android:text="开始下载任务"
+        android:id="@+id/base_download"
+        android:text="基本断点下载"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/btn_pause"
-        android:text="暂停下载任务"
+        android:id="@+id/all_download"
+        android:text="多任务断点下载"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btn_delete"
-        android:text="删除下载任务"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/folder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 </LinearLayout>
