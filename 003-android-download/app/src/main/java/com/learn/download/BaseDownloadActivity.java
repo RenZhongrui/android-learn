@@ -12,6 +12,7 @@ import com.lzy.okserver.download.DownloadTask;
 
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -39,6 +40,15 @@ public class BaseDownloadActivity extends AppCompatActivity implements View.OnCl
         initData();
         initView();
         initListener();
+        //从数据库中恢复数据
+       /* List<Progress> progressList = DownloadManager.getInstance().getAll();
+        OkDownload.restore(progressList);*/
+        List<DownloadTask> values = OkDownload.restore(DownloadManager.getInstance().getDownloading());
+        DownloadTask task = values.get(0);
+        float fraction = task.progress.fraction;
+        Log.e(TAG, "fraction: " + fraction);
+        pbProgress.setMax(10000);
+        pbProgress.setProgress((int) (fraction * 10000));
     }
 
     // 初始化数据
