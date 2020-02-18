@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/base_download"
-        android:text="基本断点下载"
+        android:id="@+id/btn_load"
+        android:text="加载插件普通类"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
