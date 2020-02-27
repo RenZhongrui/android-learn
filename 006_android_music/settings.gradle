@@ -1,0 +1,2 @@
+include ':app_music', ':lib_audio', ':lib_common_ui', ':lib_image_loader', ':lib_network', ':lib_pullalive', ':lib_qrcode', ':lib_share', ':lib_update', ':lib_video', ':lib_webview'
+rootProject.name='006_android_music'
