@@ -1,13 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.android.compileSdkVersion
+    buildToolsVersion rootProject.android.buildToolsVersion
+
     defaultConfig {
-        applicationId "com.learn.music"
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.android.applicationId
+        minSdkVersion rootProject.android.minSdkVersion
+        targetSdkVersion rootProject.android.targetSdkVersion
+        versionCode rootProject.android.versionCode
+        versionName rootProject.android.versionName
+        multiDexEnabled rootProject.android.multiDexEnabled
     }
     buildTypes {
         release {
@@ -20,4 +23,24 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
+    //基础UI库
+    implementation project(':lib_common_ui')
+    //二维码扫描库
+    implementation project(':lib_qrcode')
+    //视频播放器组件
+    implementation project(':lib_video')
+    //音频播放器组
+    implementation project(':lib_audio')
+    //webview库
+    implementation project(':lib_webview')
+    //网络请求库
+    implementation project(':lib_network')
+    //app下载更新库
+    implementation project(':lib_update')
+    //分享库
+    implementation project(':lib_share')
+    //图片加载库
+    implementation project(':lib_image_loader')
+    //保活库
+    implementation project(':lib_pullalive')
 }
