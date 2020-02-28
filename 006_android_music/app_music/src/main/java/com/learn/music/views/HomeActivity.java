@@ -1,11 +1,10 @@
 package com.learn.music.views;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import com.learn.music.R;
+import com.lib.ui.base.BaseActivity;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
