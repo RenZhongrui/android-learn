@@ -23,6 +23,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation rootProject.depsLibs.appcompact
+    implementation rootProject.depsLibs.recyclerview
     //基础UI库
     implementation project(':lib_common_ui')
     //二维码扫描库

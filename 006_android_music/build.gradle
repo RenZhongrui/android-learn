@@ -47,6 +47,10 @@ allprojects {
                 password "123456"
             }
         }
+
+        maven {
+            url "https://jitpack.io"
+        }
     }
 }
 

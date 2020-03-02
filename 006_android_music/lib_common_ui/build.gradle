@@ -21,7 +21,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation rootProject.depsLibs.appcompact
+    compileOnly rootProject.depsLibs.recyclerview
+    api rootProject.depsLibs.magicindicator
 }

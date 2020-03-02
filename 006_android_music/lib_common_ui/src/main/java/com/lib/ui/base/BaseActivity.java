@@ -13,6 +13,7 @@ public class BaseActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+        // 设置沉浸式状态栏
         StatusBarUtil.statusBarLightMode(this);
     }
 }
