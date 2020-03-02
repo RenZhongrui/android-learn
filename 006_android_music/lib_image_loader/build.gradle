@@ -21,6 +21,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation rootProject.depsLibs.appcompact
+    //glide相关依赖
+    implementation rootProject.depsLibs.glide
+    annotationProcessor rootProject.depsLibs.glidecompiler
+    //占位主工程rxjava
+    compileOnly rootProject.depsLibs.rxjava
+    compileOnly rootProject.depsLibs.rxandroid
 }
