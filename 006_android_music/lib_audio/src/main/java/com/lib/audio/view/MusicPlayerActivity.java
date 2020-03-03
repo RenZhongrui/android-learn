@@ -69,6 +69,7 @@ public class MusicPlayerActivity extends BaseActivity {
 
     public static void start(Activity context) {
         Intent intent = new Intent(context, MusicPlayerActivity.class);
+        // 带动画的启动跳转
         ActivityCompat.startActivity(context, intent,
                 ActivityOptionsCompat.makeSceneTransitionAnimation(context).toBundle());
     }

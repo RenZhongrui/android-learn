@@ -107,6 +107,7 @@ public class IndictorView extends RelativeLayout implements ViewPager.OnPageChan
         }
     }
 
+    // 播放音乐的时候，开始旋转
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onAudioLoadEvent(AudioLoadEvent event) {
         //更新viewpager为load状态
