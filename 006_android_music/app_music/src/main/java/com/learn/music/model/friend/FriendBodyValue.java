@@ -1,6 +1,7 @@
 package com.learn.music.model.friend;
 
 import com.learn.music.model.BaseModel;
+import com.lib.audio.model.AudioBean;
 
 import java.util.ArrayList;
 
@@ -18,5 +19,5 @@ public class FriendBodyValue extends BaseModel {
   public String videoUrl;
   public String zan;
   public String msg;
-  //public AudioBean audioBean;
+  public AudioBean audioBean;
 }
