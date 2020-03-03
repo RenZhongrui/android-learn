@@ -34,6 +34,7 @@ import com.lib.audio.events.AudioStartEvent;
 import com.lib.audio.model.AudioBean;
 import com.lib.audio.utils.Utils;
 import com.lib.image.loader.app.ImageLoaderManager;
+import com.lib.share.ShareDialog;
 import com.lib.ui.base.BaseActivity;
 
 import org.greenrobot.eventbus.EventBus;
@@ -114,12 +115,12 @@ public class MusicPlayerActivity extends BaseActivity {
 
             }
         });
-      /*  findViewById(R.id.share_view).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.share_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 shareMusic(mAudioBean.mUrl, mAudioBean.name);
             }
-        });*/
+        });
     /*    findViewById(R.id.show_list_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -289,7 +290,7 @@ public class MusicPlayerActivity extends BaseActivity {
     /**
      * 分享慕课网给好友
      */
- /*   private void shareMusic(String url, String name) {
+    private void shareMusic(String url, String name) {
         ShareDialog dialog = new ShareDialog(this, false);
         dialog.setShareType(5);
         dialog.setShareTitle(name);
@@ -298,5 +299,5 @@ public class MusicPlayerActivity extends BaseActivity {
         dialog.setShareSite("imooc");
         dialog.setShareSiteUrl("http://www.imooc.com");
         dialog.show();
-    }*/
+    }
 }

@@ -12,6 +12,7 @@ import cn.sharesdk.wechat.moments.WechatMoments;
 
 /**
  * @function 分享功能统一入口，负责发送数据到指定平台,可以优化为一个单例模式
+ * https://github.com/MobClub/ShareSDK-for-Android
  */
 
 public class ShareManager {
