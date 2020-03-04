@@ -18,6 +18,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".view.login.LoginActivity"/>
+        <activity android:name=".view.loading.LoadingActivity"/>
         <activity android:name=".view.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
