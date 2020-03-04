@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.alibaba.arouter' // 2、arouter插件配置
 
 android {
     compileSdkVersion rootProject.android.compileSdkVersion
@@ -7,6 +8,12 @@ android {
         minSdkVersion rootProject.android.minSdkVersion
         targetSdkVersion rootProject.android.targetSdkVersion
         consumerProguardFiles 'consumer-rules.pro'
+        // 3、ARouter配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
     }
 
     buildTypes {
@@ -21,5 +28,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation rootProject.depsLibs.appcompact
+
+    // 4、arouter库
+    compileOnly(rootProject.depsLibs.arouterapi) {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor rootProject.depsLibs.aroutercompiler
 }

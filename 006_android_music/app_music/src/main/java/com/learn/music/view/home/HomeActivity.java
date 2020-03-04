@@ -11,7 +11,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.learn.music.R;
+import com.learn.music.constant.Constant;
 import com.learn.music.model.CHANNEL;
 import com.learn.music.model.login.LoginEvent;
 import com.learn.music.utils.UserManager;
@@ -81,6 +83,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
         mPhotoView = findViewById(R.id.avatr_view);
         findViewById(R.id.exit_layout).setOnClickListener(this);
         findViewById(R.id.check_update_view).setOnClickListener(this);
+        mDrawerShareView = findViewById(R.id.home_music);
+        mDrawerShareView.setOnClickListener(this);
+        findViewById(R.id.online_music_view).setOnClickListener(this);
     }
 
     private void initData() {
@@ -131,6 +136,14 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.check_update_view:
                 checkUpdate();
+                break;
+            case R.id.home_music:
+                //shareFriend();
+                goToMusic();
+                break;
+            case R.id.online_music_view:
+                //跳到指定webactivity
+                gotoWebView("https://www.imooc.com");
                 break;
         }
     }
@@ -198,5 +211,16 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
     //启动检查更新
     private void checkUpdate() {
         UpdateHelper.checkUpdate(this);
+    }
+
+    private void goToMusic() {
+        ARouter.getInstance().build(Constant.Router.ROUTER_MUSIC_ACTIVIYT).navigation();
+    }
+
+    private void gotoWebView(String url) {
+        ARouter.getInstance()
+                .build(Constant.Router.ROUTER_WEB_ACTIVIYT)
+                .withString("url", url)
+                .navigation();
     }
 }

@@ -21,6 +21,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lib.audio.R;
 import com.lib.audio.core.AudioController;
 import com.lib.audio.core.CustomMediaPlayer;
@@ -44,6 +45,7 @@ import org.greenrobot.eventbus.ThreadMode;
 /**
  * 播放音乐Activity
  */
+@Route(path = "/audio/music_activity")
 public class MusicPlayerActivity extends BaseActivity {
 
     private RelativeLayout mBgView;

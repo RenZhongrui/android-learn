@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app_music" />
             <option value="$PROJECT_DIR$/lib_audio" />
+            <option value="$PROJECT_DIR$/lib_base" />
             <option value="$PROJECT_DIR$/lib_common_ui" />
             <option value="$PROJECT_DIR$/lib_image_loader" />
             <option value="$PROJECT_DIR$/lib_network" />

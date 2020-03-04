@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'com.alibaba.arouter' // 2、arouter插件配置
 // 2、引入maven插件
 apply plugin: 'maven'
 
@@ -14,6 +15,13 @@ android {
         versionName '1.0'
 
         consumerProguardFiles 'consumer-rules.pro'
+
+        // 3、ARouter配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
     }
 
     buildTypes {
@@ -38,9 +46,16 @@ dependencies {
     compileOnly rootProject.depsLibs.eventbus
     //greendao类库依赖
     compileOnly rootProject.depsLibs.greendao
+    // 4、arouter库
+    compileOnly(rootProject.depsLibs.arouterapi) {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor rootProject.depsLibs.aroutercompiler
+
     compileOnly project(':lib_image_loader')
     compileOnly project(':lib_common_ui')
     compileOnly project(':lib_share')
+    compileOnly project(':lib_base')
 }
 
 
