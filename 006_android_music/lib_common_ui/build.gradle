@@ -24,4 +24,5 @@ dependencies {
     implementation rootProject.depsLibs.appcompact
     compileOnly rootProject.depsLibs.recyclerview
     api rootProject.depsLibs.magicindicator
+    compileOnly project(':lib_image_loader')
 }

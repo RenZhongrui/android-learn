@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.learn.music.model.CHANNEL;
+import com.learn.music.view.discory.DiscoryFragment;
+import com.learn.music.view.friend.FriendFragment;
 import com.learn.music.view.mine.MineFragment;
 
 public class HomePagerAdapter extends FragmentPagerAdapter {
@@ -24,10 +26,10 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
         switch (type) {
          case CHANNEL.MINE_ID:
                 return MineFragment.newInstance();
-           /*    case CHANNEL.DISCORY_ID:
+               case CHANNEL.DISCORY_ID:
                 return DiscoryFragment.newInstance();
             case CHANNEL.FRIEND_ID:
-                return FriendFragment.newInstance();*/
+                return FriendFragment.newInstance();
         /*    case CHANNEL.VIDEO_ID:
                 return VideoFragment.newInstance();*/
         }

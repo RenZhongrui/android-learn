@@ -40,7 +40,7 @@ import java.util.ArrayList;
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener{
     private static final CHANNEL[] CHANNELS =
-            new CHANNEL[]{CHANNEL.MY, CHANNEL.DISCORY, CHANNEL.FRIEND};
+            new CHANNEL[]{CHANNEL.MY, CHANNEL.DISCORY,CHANNEL.FRIEND};
 
     private DrawerLayout mDrawerLayout;
     private View mToggleView;
@@ -72,7 +72,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
         //初始化adpater
         mAdapter = new HomePagerAdapter(getSupportFragmentManager(), CHANNELS);
         mViewPager = findViewById(R.id.view_pager);
-        //mViewPager.setAdapter(mAdapter);
+        mViewPager.setAdapter(mAdapter);
         initMagicIndicator();
 
         unLogginLayout = findViewById(R.id.unloggin_layout);
