@@ -23,6 +23,7 @@ import com.lib.audio.utils.AudioHelper;
 import com.lib.image.loader.app.ImageLoaderManager;
 import com.lib.ui.base.BaseActivity;
 import com.lib.ui.pager_indictor.ScaleTransitionPagerTitleView;
+import com.lib.update.UpdateHelper;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -79,6 +80,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
         unLogginLayout.setOnClickListener(this);
         mPhotoView = findViewById(R.id.avatr_view);
         findViewById(R.id.exit_layout).setOnClickListener(this);
+        findViewById(R.id.check_update_view).setOnClickListener(this);
     }
 
     private void initData() {
@@ -126,6 +128,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
                 } else {
                     mDrawerLayout.openDrawer(Gravity.LEFT);
                 }
+                break;
+            case R.id.check_update_view:
+                checkUpdate();
                 break;
         }
     }
@@ -188,5 +193,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+    }
+
+    //启动检查更新
+    private void checkUpdate() {
+        UpdateHelper.checkUpdate(this);
     }
 }
