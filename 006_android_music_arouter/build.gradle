@@ -1,0 +1,63 @@
+//引入根工程下的统一版本管理文件
+apply from: this.rootProject.file('global.gradle')
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral();
+        maven {
+            url "http://101.200.147.104:8081/repository/maven-releases/"
+            credentials {
+                username "admin"
+                password "123456"
+            }
+        }
+
+        maven {
+            url "http://101.200.147.104:8081/repository/maven-snapshots/"
+            credentials {
+                username "admin"
+                password "123456"
+            }
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        //greendao插件依赖
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+        // 1、ARouter插件依赖
+        classpath "com.alibaba:arouter-register:1.0.2"
+
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral();
+        maven {
+            url "http://101.200.147.104:8081/repository/maven-releases/"
+            credentials {
+                username "admin"
+                password "123456"
+            }
+        }
+
+        maven {
+            url "http://101.200.147.104:8081/repository/maven-snapshots/"
+            credentials {
+                username "admin"
+                password "123456"
+            }
+        }
+
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
