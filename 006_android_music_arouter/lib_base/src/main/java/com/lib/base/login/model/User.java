@@ -1,7 +1,7 @@
-package com.learn.music.model.user;
+package com.lib.base.login.model;
 
-import com.learn.music.model.BaseModel;
-import com.learn.music.model.user.UserContent;
+
+import com.lib.base.model.BaseModel;
 
 /**
  * 用户数据协议

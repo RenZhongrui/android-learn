@@ -8,9 +8,8 @@ import android.widget.RelativeLayout;
 
 import com.learn.music.R;
 import com.learn.music.model.friend.FriendBodyValue;
-import com.learn.music.utils.UserManager;
-import com.learn.music.view.login.LoginActivity;
 import com.lib.audio.utils.AudioHelper;
+import com.lib.base.login.LoginImpl;
 import com.lib.image.loader.app.ImageLoaderManager;
 import com.lib.ui.recyclerview.MultiItemTypeAdapter;
 import com.lib.ui.recyclerview.base.ItemViewDelegate;
@@ -67,10 +66,14 @@ public class FriendRecyclerAdapter extends MultiItemTypeAdapter {
             holder.setOnClickListener(R.id.guanzhu_view, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!UserManager.getInstance().hasLogined()) {
+              /*      if (!UserManager.getInstance().hasLogined()) {
                         //goto login
                         LoginActivity.start(mContext);
+                    }*/
+                    if (!LoginImpl.getInstance().hasLogin()) {
+                        LoginImpl.getInstance().login(mContext);
                     }
+
                 }
             });
             ImageView avatar = holder.getView(R.id.photo_view);
@@ -109,9 +112,12 @@ public class FriendRecyclerAdapter extends MultiItemTypeAdapter {
             holder.setOnClickListener(R.id.guanzhu_view, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!UserManager.getInstance().hasLogined()) {
+                  /*  if (!UserManager.getInstance().hasLogined()) {
                         //goto login
                         LoginActivity.start(mContext);
+                    }*/
+                    if (!LoginImpl.getInstance().hasLogin()) {
+                        LoginImpl.getInstance().login(mContext);
                     }
                 }
             });

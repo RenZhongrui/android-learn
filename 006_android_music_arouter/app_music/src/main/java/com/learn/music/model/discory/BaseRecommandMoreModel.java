@@ -1,12 +1,11 @@
 package com.learn.music.model.discory;
 
-import com.learn.music.model.BaseModel;
-import com.learn.music.model.discory.RecommandMoreModel;
+import java.io.Serializable;
 
 /**
  * Created by renzhiqiang on 19/6/8.
  */
-public class BaseRecommandMoreModel extends BaseModel {
+public class BaseRecommandMoreModel implements Serializable {
 
   public String ecode;
   public String emsg;

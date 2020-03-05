@@ -1,4 +1,4 @@
-package com.learn.music.view.login;
+package com.ft.login;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.learn.music.R;
-import com.learn.music.view.login.inter.IUserLoginView;
-import com.learn.music.view.login.presenter.UserLoginPresenter;
+import com.ft.login.inter.IUserLoginView;
+import com.ft.login.presenter.UserLoginPresenter;
 import com.lib.ui.base.BaseActivity;
+
 
 public class LoginActivity extends BaseActivity implements IUserLoginView {
 

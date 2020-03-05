@@ -1,14 +1,13 @@
-package com.learn.music.view.login.presenter;
+package com.ft.login.presenter;
 
-
+import com.ft.login.api.MockData;
+import com.ft.login.api.RequestCenter;
+import com.ft.login.inter.IUserLoginPresenter;
+import com.ft.login.inter.IUserLoginView;
+import com.ft.login.manager.UserManager;
 import com.google.gson.Gson;
-import com.learn.music.api.MockData;
-import com.learn.music.api.RequestCenter;
-import com.learn.music.model.login.LoginEvent;
-import com.learn.music.model.user.User;
-import com.learn.music.utils.UserManager;
-import com.learn.music.view.login.inter.IUserLoginPresenter;
-import com.learn.music.view.login.inter.IUserLoginView;
+import com.lib.base.login.model.LoginEvent;
+import com.lib.base.login.model.User;
 import com.lib.network.listener.DisposeDataListener;
 
 import org.greenrobot.eventbus.EventBus;

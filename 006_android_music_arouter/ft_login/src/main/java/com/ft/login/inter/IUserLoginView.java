@@ -1,4 +1,4 @@
-package com.learn.music.view.login.inter;
+package com.ft.login.inter;
 
 /**
  * UI层对外提供的方法

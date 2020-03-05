@@ -74,4 +74,7 @@ dependencies {
     implementation project(':lib_image_loader')
     //保活库
     implementation project(':lib_pullalive')
+
+    // 业务库
+    implementation project(':ft_login')
 }

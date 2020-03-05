@@ -4,7 +4,6 @@ package com.learn.music.api;
 import com.learn.music.model.discory.BaseRecommandModel;
 import com.learn.music.model.discory.BaseRecommandMoreModel;
 import com.learn.music.model.friend.BaseFriendModel;
-import com.learn.music.model.user.User;
 import com.lib.network.CommonOkHttpClient;
 import com.lib.network.listener.DisposeDataHandle;
 import com.lib.network.listener.DisposeDataListener;
@@ -29,10 +28,6 @@ public class RequestCenter {
 
         private static String HOME_FRIEND = ROOT_URL + "/module_voice/home_friend";
 
-        /**
-         * 登陆接口
-         */
-        public static String LOGIN = ROOT_URL + "/module_voice/login_phone";
     }
 
     //根据参数发送所有post请求
@@ -56,14 +51,4 @@ public class RequestCenter {
         RequestCenter.getRequest(HttpConstants.HOME_FRIEND, null, listener, BaseFriendModel.class);
     }
 
-    /**
-     * 用户登陆请求
-     */
-    public static void login(DisposeDataListener listener) {
-
-        RequestParams params = new RequestParams();
-        params.put("mb", "18734924592");
-        params.put("pwd", "999999q");
-        RequestCenter.getRequest(HttpConstants.LOGIN, params, listener, User.class);
-    }
 }

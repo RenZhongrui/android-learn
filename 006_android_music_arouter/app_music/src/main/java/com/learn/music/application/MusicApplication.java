@@ -26,6 +26,8 @@ public class MusicApplication extends Application {
         UpdateHelper.init(this);
         //ARouter初始化
         ARouter.init(this);
+        ARouter.openLog();
+        ARouter.openDebug();
     }
 
     public static MusicApplication getInstance() {

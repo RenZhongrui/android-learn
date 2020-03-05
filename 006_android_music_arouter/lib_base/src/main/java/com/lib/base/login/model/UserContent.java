@@ -1,6 +1,7 @@
-package com.learn.music.model.user;
+package com.lib.base.login.model;
 
-import com.learn.music.model.BaseModel;
+
+import com.lib.base.model.BaseModel;
 
 /**
  * 用户真正实体数据

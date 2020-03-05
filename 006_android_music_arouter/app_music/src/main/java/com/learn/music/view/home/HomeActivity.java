@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,13 +14,11 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.learn.music.R;
 import com.learn.music.constant.Constant;
 import com.learn.music.model.CHANNEL;
-import com.learn.music.model.login.LoginEvent;
-import com.learn.music.utils.UserManager;
 import com.learn.music.view.home.adpater.HomePagerAdapter;
-import com.learn.music.view.login.LoginActivity;
 import com.lib.audio.core.AudioController;
 import com.lib.audio.model.AudioBean;
-import com.lib.audio.utils.AudioHelper;
+import com.lib.base.login.LoginImpl;
+import com.lib.base.login.model.LoginEvent;
 import com.lib.image.loader.app.ImageLoaderManager;
 import com.lib.ui.base.BaseActivity;
 import com.lib.ui.pager_indictor.ScaleTransitionPagerTitleView;
@@ -121,8 +118,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
                 System.exit(0);
                 break;
             case R.id.unloggin_layout:
-                if (!UserManager.getInstance().hasLogined()) {
+           /*     if (!UserManager.getInstance().hasLogined()) {
                     LoginActivity.start(this);
+                } else {
+                    mDrawerLayout.closeDrawer(Gravity.LEFT);
+                }*/
+                if (!LoginImpl.getInstance().hasLogin()) {
+                    LoginImpl.getInstance().login(this);
                 } else {
                     mDrawerLayout.closeDrawer(Gravity.LEFT);
                 }
@@ -198,8 +200,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
     public void onLoginEvent(LoginEvent event) {
         unLogginLayout.setVisibility(View.GONE);
         mPhotoView.setVisibility(View.VISIBLE);
+  /*      ImageLoaderManager.getInstance()
+                .displayImageForCircle(mPhotoView, UserManager.getInstance().getUser().data.photoUrl);*/
         ImageLoaderManager.getInstance()
-                .displayImageForCircle(mPhotoView, UserManager.getInstance().getUser().data.photoUrl);
+                .displayImageForCircle(mPhotoView, LoginImpl.getInstance().getUserInfo().data.photoUrl);
     }
 
     @Override

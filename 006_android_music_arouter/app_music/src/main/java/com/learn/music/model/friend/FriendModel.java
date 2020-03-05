@@ -1,6 +1,7 @@
 package com.learn.music.model.friend;
 
-import com.learn.music.model.BaseModel;
+
+import com.lib.base.model.BaseModel;
 
 import java.util.ArrayList;
 

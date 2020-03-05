@@ -1,8 +1,8 @@
 package com.learn.music.model.discory;
 
-import com.learn.music.model.BaseModel;
+import java.io.Serializable;
 
-public class RecommandFooterValue extends BaseModel {
+public class RecommandFooterValue implements Serializable {
 
   public String info;
   public String imageUrl;

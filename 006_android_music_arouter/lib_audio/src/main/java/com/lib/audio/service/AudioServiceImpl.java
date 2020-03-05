@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lib.audio.core.AudioController;
-import com.lib.base.service.AudioService;
+import com.lib.base.audio.AudioService;
 
 /**
  * AudioService实现类

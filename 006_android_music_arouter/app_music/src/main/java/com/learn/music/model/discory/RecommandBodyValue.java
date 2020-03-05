@@ -1,11 +1,11 @@
 package com.learn.music.model.discory;
 
-import com.learn.music.model.BaseModel;
+import java.io.Serializable;
 
 /**
  * @文件描述：推荐实体
  */
-public class RecommandBodyValue extends BaseModel {
+public class RecommandBodyValue implements Serializable {
 
   public int type;
   public String avatr;

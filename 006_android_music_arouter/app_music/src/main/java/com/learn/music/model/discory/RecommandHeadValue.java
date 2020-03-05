@@ -1,8 +1,6 @@
 package com.learn.music.model.discory;
 
-import com.learn.music.model.BaseModel;
-import com.learn.music.model.discory.RecommandMiddleValue;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +8,7 @@ import java.util.ArrayList;
  * @function:
  * @date: 19/6/2
  */
-public class RecommandHeadValue extends BaseModel {
+public class RecommandHeadValue implements Serializable {
 
     public ArrayList<String> ads;
     public ArrayList<RecommandMiddleValue> middle;

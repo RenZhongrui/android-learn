@@ -1,4 +1,4 @@
-package com.lib.base.service;
+package com.lib.base.audio;
 
 import com.alibaba.android.arouter.facade.template.IProvider;
 

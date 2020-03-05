@@ -1,11 +1,11 @@
 package com.learn.music.model.friend;
 
-import com.learn.music.model.BaseModel;
+import java.io.Serializable;
 
 /**
  * Created by renzhiqiang on
  */
-public class BaseFriendModel extends BaseModel {
+public class BaseFriendModel implements Serializable {
 
   public String ecode;
   public String emsg;

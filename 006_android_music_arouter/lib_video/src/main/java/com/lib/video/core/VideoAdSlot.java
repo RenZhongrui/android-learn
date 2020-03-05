@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.lib.base.service.AudioService;
+import com.lib.base.audio.AudioService;
 import com.lib.video.core.view.CustomVideoView;
 import com.lib.video.core.view.VideoFullDialog;
 import com.lib.video.utils.Utils;

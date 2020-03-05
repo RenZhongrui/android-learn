@@ -1,14 +1,14 @@
 package com.learn.music.model.friend;
 
-import com.learn.music.model.BaseModel;
 import com.lib.audio.model.AudioBean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @文件描述：朋友实体
  */
-public class FriendBodyValue extends BaseModel {
+public class FriendBodyValue implements Serializable {
 
   public int type;
   public String avatr;
