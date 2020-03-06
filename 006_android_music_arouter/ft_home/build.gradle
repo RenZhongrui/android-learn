@@ -61,8 +61,6 @@ dependencies {
     compileOnly project(':lib_update')
     //图片加载库
     compileOnly project(':lib_image_loader')
-    //音频播放器组
-    compileOnly project(':lib_audio')
     //视频播放器组件
     compileOnly project(':lib_video')
 }

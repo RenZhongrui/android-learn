@@ -1,7 +1,7 @@
 package com.ft.home.model.friend;
 
 
-import com.lib.audio.model.AudioBean;
+import com.lib.base.audio.model.CommonAudioBean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,5 +20,5 @@ public class FriendBodyValue implements Serializable {
   public String videoUrl;
   public String zan;
   public String msg;
-  public AudioBean audioBean;
+  public CommonAudioBean audioBean;
 }

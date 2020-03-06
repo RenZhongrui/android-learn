@@ -66,7 +66,7 @@ dependencies {
     //视频播放器组件
     implementation project(':lib_video')
     //音频播放器组
-    implementation project(':lib_audio')
+    implementation project(':ft_audio')
     //webview库
     implementation project(':lib_webview')
     //网络请求库
@@ -83,4 +83,5 @@ dependencies {
     // 业务库
     implementation project(':ft_login')
     implementation project(':ft_home')
+    implementation project(':ft_loading')
 }

@@ -1,4 +1,4 @@
-package com.learn.music.view.loading;
+package com.ft.loading;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import com.learn.music.R;
 import com.lib.base.home.HomeImpl;
 import com.lib.pullalive.AliveJobService;
 import com.lib.ui.base.BaseActivity;

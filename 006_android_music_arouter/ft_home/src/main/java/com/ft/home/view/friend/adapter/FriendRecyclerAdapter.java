@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 
 import com.ft.home.R;
 import com.ft.home.model.friend.FriendBodyValue;
-import com.lib.audio.utils.AudioHelper;
+import com.lib.base.audio.AudioImpl;
 import com.lib.base.login.LoginImpl;
 import com.lib.image.loader.app.ImageLoaderManager;
 import com.lib.ui.recyclerview.MultiItemTypeAdapter;
@@ -60,7 +60,8 @@ public class FriendRecyclerAdapter extends MultiItemTypeAdapter {
                 @Override
                 public void onClick(View v) {
                     //调用播放器装饰类
-                    AudioHelper.addAudio((Activity) mContext, recommandBodyValue.audioBean);
+                    // AudioHelper.addAudio((Activity) mContext, recommandBodyValue.audioBean);
+                    AudioImpl.getInstance().addAudio((Activity)mContext,recommandBodyValue.audioBean);
                 }
             });
             holder.setOnClickListener(R.id.guanzhu_view, new View.OnClickListener() {

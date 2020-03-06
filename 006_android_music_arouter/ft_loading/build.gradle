@@ -1,12 +1,15 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.alibaba.arouter' // 2、arouter插件配置
-
 android {
     compileSdkVersion rootProject.android.compileSdkVersion
     buildToolsVersion rootProject.android.buildToolsVersion
+
     defaultConfig {
         minSdkVersion rootProject.android.minSdkVersion
         targetSdkVersion rootProject.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
         consumerProguardFiles 'consumer-rules.pro'
 
         // 3、ARouter配置
@@ -23,9 +26,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
+    }
+
+    lintOptions {
+        abortOnError false
     }
 
 }
@@ -33,10 +41,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     compileOnly rootProject.depsLibs.appcompact
-    // 4、arouter库
+    //保活库
+    implementation project(':lib_pullalive')
+    compileOnly project(':lib_common_ui')
+    compileOnly project(':lib_base')
+    //arouter库
     compileOnly(rootProject.depsLibs.arouterapi) {
         exclude group: 'com.android.support'
     }
     annotationProcessor rootProject.depsLibs.aroutercompiler
-    compileOnly project(':lib_base')
 }
