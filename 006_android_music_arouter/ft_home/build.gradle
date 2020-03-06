@@ -27,16 +27,22 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     compileOnly rootProject.depsLibs.appcompact
+    compileOnly rootProject.depsLibs.recyclerview
     compileOnly rootProject.depsLibs.eventbus
-    //网络请求库
-    compileOnly project(':lib_network')
-    //基础UI库
-    compileOnly project(':lib_common_ui')
     //gson解析库
     compileOnly rootProject.depsLibs.gson
 
@@ -47,4 +53,16 @@ dependencies {
     annotationProcessor rootProject.depsLibs.aroutercompiler
 
     compileOnly project(':lib_base')
+    //网络请求库
+    compileOnly project(':lib_network')
+    //基础UI库
+    compileOnly project(':lib_common_ui')
+    //app下载更新库
+    compileOnly project(':lib_update')
+    //图片加载库
+    compileOnly project(':lib_image_loader')
+    //音频播放器组
+    compileOnly project(':lib_audio')
+    //视频播放器组件
+    compileOnly project(':lib_video')
 }

@@ -1,12 +1,13 @@
 package com.learn.music.view.loading;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
 import com.learn.music.R;
-import com.learn.music.view.home.HomeActivity;
+import com.lib.base.home.HomeImpl;
 import com.lib.pullalive.AliveJobService;
 import com.lib.ui.base.BaseActivity;
 import com.lib.ui.base.Constant;
@@ -14,10 +15,12 @@ import com.lib.ui.base.Constant;
 
 public class LoadingActivity extends BaseActivity {
 
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            startActivity(new Intent(LoadingActivity.this, HomeActivity.class));
+            //startActivity(new Intent(LoadingActivity.this, HomeActivity.class));
+            HomeImpl.getInstance().startActivity(LoadingActivity.this);
             finish();
         }
     };
