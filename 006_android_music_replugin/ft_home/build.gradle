@@ -1,0 +1,66 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.alibaba.arouter' // 2、arouter插件配置
+android {
+    compileSdkVersion rootProject.android.compileSdkVersion
+    buildToolsVersion rootProject.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.android.minSdkVersion
+        targetSdkVersion rootProject.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        consumerProguardFiles 'consumer-rules.pro'
+
+        // 3、ARouter配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly rootProject.depsLibs.appcompact
+    compileOnly rootProject.depsLibs.recyclerview
+    compileOnly rootProject.depsLibs.eventbus
+    //gson解析库
+    compileOnly rootProject.depsLibs.gson
+
+    // 4、arouter库
+    compileOnly(rootProject.depsLibs.arouterapi) {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor rootProject.depsLibs.aroutercompiler
+
+    compileOnly project(':lib_base')
+    //网络请求库
+    compileOnly project(':lib_network')
+    //基础UI库
+    compileOnly project(':lib_common_ui')
+    //app下载更新库
+    compileOnly project(':lib_update')
+    //图片加载库
+    compileOnly project(':lib_image_loader')
+    //视频播放器组件
+    compileOnly project(':lib_video')
+}

@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.alibaba.arouter' // 2、arouter插件配置
+
+android {
+    compileSdkVersion rootProject.android.compileSdkVersion
+    buildToolsVersion rootProject.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId rootProject.android.applicationId
+        minSdkVersion rootProject.android.minSdkVersion
+        targetSdkVersion rootProject.android.targetSdkVersion
+        versionCode rootProject.android.versionCode
+        versionName rootProject.android.versionName
+        multiDexEnabled rootProject.android.multiDexEnabled
+
+        // 3、ARouter配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.depsLibs.appcompact
+    implementation rootProject.depsLibs.recyclerview
+    //eventbus类库依赖
+    implementation rootProject.depsLibs.eventbus
+    //greendao类库依赖
+    implementation rootProject.depsLibs.greendao
+    //rxjava库
+    implementation rootProject.depsLibs.rxjava
+    implementation rootProject.depsLibs.rxandroid
+    //gson解析库
+    implementation rootProject.depsLibs.gson
+    // 4、arouter库
+    implementation(rootProject.depsLibs.arouterapi) {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor rootProject.depsLibs.aroutercompiler
+
+    // 基础库
+    implementation project(':lib_base')
+    //基础UI库
+    implementation project(':lib_common_ui')
+    //二维码扫描库
+    implementation project(':lib_qrcode')
+    //视频播放器组件
+    implementation project(':lib_video')
+    //音频播放器组
+    implementation project(':ft_audio')
+    //webview库
+    implementation project(':lib_webview')
+    //网络请求库
+    implementation project(':lib_network')
+    //app下载更新库
+    implementation project(':lib_update')
+    //分享库
+    implementation project(':lib_share')
+    //图片加载库
+    implementation project(':lib_image_loader')
+    //保活库
+    implementation project(':lib_pullalive')
+
+    // 业务库
+    implementation project(':ft_login')
+    implementation project(':ft_home')
+    implementation project(':ft_loading')
+}
