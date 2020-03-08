@@ -9,6 +9,7 @@ android {
         targetSdkVersion rootProject.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        //multiDexEnabled false
 
         consumerProguardFiles 'consumer-rules.pro'
 
@@ -34,6 +35,12 @@ android {
 
     lintOptions {
         abortOnError false
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
     }
 
 }
@@ -63,4 +70,19 @@ dependencies {
     compileOnly project(':lib_image_loader')
     //视频播放器组件
     compileOnly project(':lib_video')
+
+}
+
+/*
+apply plugin: 'replugin-plugin-gradle'
+
+repluginPluginConfig {
+    pluginName = 'ft_home'
+    hostApplicationId = 'com.learn.music'
+    hostAppLauncherActivity = "com.learn.music.loading.LoadingActivity" //宿主工程启动activity
+}
+
+*/
+dependencies {
+    compileOnly "com.qihoo360.replugin:replugin-plugin-lib:2.3.3"
 }

@@ -27,6 +27,10 @@ buildscript {
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         // 1、ARouter插件依赖
         classpath "com.alibaba:arouter-register:1.0.2"
+        // 插件化框架replugin，宿主依赖
+        classpath 'com.qihoo360.replugin:replugin-host-gradle:2.3.3'
+        // 插件依赖
+        classpath 'com.qihoo360.replugin:replugin-plugin-gradle:2.2.4'
 
     }
 }

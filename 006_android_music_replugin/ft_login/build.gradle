@@ -1,14 +1,17 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 apply plugin: 'com.alibaba.arouter' // 2、arouter插件配置
+
 android {
     compileSdkVersion rootProject.android.compileSdkVersion
     buildToolsVersion rootProject.android.buildToolsVersion
 
     defaultConfig {
+        applicationId "com.ft.login"
         minSdkVersion rootProject.android.minSdkVersion
         targetSdkVersion rootProject.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled false
 
         consumerProguardFiles 'consumer-rules.pro'
 
@@ -35,20 +38,33 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly rootProject.depsLibs.appcompact
-    compileOnly rootProject.depsLibs.eventbus
+    implementation rootProject.depsLibs.appcompact
+    implementation rootProject.depsLibs.eventbus
     //网络请求库
-    compileOnly project(':lib_network')
+    implementation project(':lib_network')
     //基础UI库
-    compileOnly project(':lib_common_ui')
+    implementation project(':lib_common_ui')
     //gson解析库
-    compileOnly rootProject.depsLibs.gson
+    implementation rootProject.depsLibs.gson
 
     // 4、arouter库
-    compileOnly(rootProject.depsLibs.arouterapi) {
+    implementation(rootProject.depsLibs.arouterapi) {
         exclude group: 'com.android.support'
     }
     annotationProcessor rootProject.depsLibs.aroutercompiler
 
-    compileOnly project(':lib_base')
+    implementation project(':lib_base')
+
+}
+
+
+apply plugin: 'replugin-plugin-gradle'
+repluginPluginConfig {
+    pluginName = 'ft_login' // 插件名称
+    hostApplicationId = 'com.learn.music' // 宿主app
+    hostAppLauncherActivity = 'com.learn.music.loading.LoadingActivity' // 宿主工程启动页
+}
+
+dependencies {
+    implementation "com.qihoo360.replugin:replugin-plugin-lib:2.3.3"
 }

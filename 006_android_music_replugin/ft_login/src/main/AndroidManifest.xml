@@ -2,8 +2,10 @@
     package="com.ft.login" >
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application  android:allowBackup="true"
+    <application
+        android:name=".LoginApplication"
+        android:allowBackup="true"
         android:label="@string/app_name">
-        <activity android:name=".LoginActivity"/>
+        <activity android:launchMode="singleTask" android:name=".LoginActivity"/>
     </application>
 </manifest>

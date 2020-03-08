@@ -11,7 +11,7 @@ android {
         targetSdkVersion rootProject.android.targetSdkVersion
         versionCode rootProject.android.versionCode
         versionName rootProject.android.versionName
-        multiDexEnabled rootProject.android.multiDexEnabled
+        multiDexEnabled false
 
         // 3、ARouter配置
         javaCompileOptions {
@@ -36,6 +36,19 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+}
+apply plugin: 'replugin-host-gradle'
+/**
+ * 配置项均为可选配置，默认无需添加
+ * 更多可选配置项参见replugin-host-gradle的RepluginConfig类
+ * 可更改配置项参见 自动生成RePluginHostConfig.java
+ */
+repluginHostConfig {
+    /**
+     * 是否使用 AppCompat 库
+     * 不需要个性化配置时，无需添加
+     */
+    useAppCompat = true
 }
 
 dependencies {
@@ -81,7 +94,9 @@ dependencies {
     implementation project(':lib_pullalive')
 
     // 业务库
-    implementation project(':ft_login')
+    //implementation project(':ft_login')
     implementation project(':ft_home')
     implementation project(':ft_loading')
+
+    implementation 'com.qihoo360.replugin:replugin-host-lib:2.3.3'
 }

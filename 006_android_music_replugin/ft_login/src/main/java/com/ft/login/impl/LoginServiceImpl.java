@@ -37,6 +37,6 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public void init(Context context) {
-        Log.e("init: ", "LoginServiceImpl init");
+        Log.e("init: ", "LoginServiceAidlImpl init");
     }
 }

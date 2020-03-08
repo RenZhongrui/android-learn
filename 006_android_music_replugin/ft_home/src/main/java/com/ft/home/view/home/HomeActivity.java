@@ -1,10 +1,13 @@
 package com.ft.home.view.home;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -16,14 +19,20 @@ import com.ft.home.R;
 import com.ft.home.constant.Constant;
 import com.ft.home.model.CHANNEL;
 import com.ft.home.view.home.adpater.HomePagerAdapter;
+import com.google.gson.Gson;
 import com.lib.base.audio.AudioImpl;
 import com.lib.base.audio.model.CommonAudioBean;
+import com.lib.base.login.ILoginService;
 import com.lib.base.login.LoginImpl;
+import com.lib.base.login.LoginPluginConfig;
 import com.lib.base.login.model.LoginEvent;
+import com.lib.base.login.model.User;
 import com.lib.image.loader.app.ImageLoaderManager;
 import com.lib.ui.base.BaseActivity;
+import com.lib.ui.base.PluginBaseActivity;
 import com.lib.ui.pager_indictor.ScaleTransitionPagerTitleView;
 import com.lib.update.UpdateHelper;
+import com.qihoo360.replugin.RePlugin;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -55,9 +64,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     private ArrayList<CommonAudioBean> mLists = new ArrayList<>();
 
+    private UserBroadcastReceiver mUserBroadcastReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        registerUserReceiver();
         setContentView(R.layout.activity_home);
         EventBus.getDefault().register(this);
         initView();
@@ -126,11 +138,29 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 } else {
                     mDrawerLayout.closeDrawer(Gravity.LEFT);
                 }*/
-            if (!LoginImpl.getInstance().hasLogin()) {
+        /*    if (!LoginImpl.getInstance().hasLogin()) {
                 LoginImpl.getInstance().login(this);
             } else {
                 mDrawerLayout.closeDrawer(Gravity.LEFT);
+            }*/
+            // 插件化通信
+            IBinder iBinder = RePlugin.fetchBinder(LoginPluginConfig.PLUGIN_NAME, LoginPluginConfig.KEY_INTERFACE);
+            if (iBinder == null) {
+                return;
             }
+            ILoginService iLoginService = ILoginService.Stub.asInterface(iBinder);
+            try {
+                if (!iLoginService.hasLgoin()) {
+                    Intent loginIntent = RePlugin.createIntent(LoginPluginConfig.PLUGIN_NAME, LoginPluginConfig.PAGE.PAGE_LOGIN);
+                    loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    RePlugin.startActivity(this, loginIntent);
+                } else {
+                    mDrawerLayout.closeDrawer(Gravity.LEFT);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             return;
         }
         if (id == R.id.toggle_view) {
@@ -212,10 +242,43 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 .displayImageForCircle(mPhotoView, LoginImpl.getInstance().getUserInfo().data.photoUrl);
     }
 
+    private void registerUserReceiver() {
+        if (mUserBroadcastReceiver == null) {
+            mUserBroadcastReceiver = new UserBroadcastReceiver();
+        }
+        registerReceiver(mUserBroadcastReceiver,
+                new IntentFilter(LoginPluginConfig.ACTION.LOGIN_SUCCESS_ACTION));
+    }
+
+    private void unRegisterUserReceiver() {
+        if (mUserBroadcastReceiver != null) {
+            unregisterReceiver(mUserBroadcastReceiver);
+        }
+    }
+
+    // 创建登录广播接收器
+    private class UserBroadcastReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action != null && action.equals(LoginPluginConfig.ACTION.LOGIN_SUCCESS_ACTION)) {
+                updateLoginUI(intent.getStringExtra(LoginPluginConfig.ACTION.KEY_DATA));
+            }
+        }
+    }
+
+    private void updateLoginUI(String data) {
+        unLogginLayout.setVisibility(View.GONE);
+        mPhotoView.setVisibility(View.VISIBLE);
+        ImageLoaderManager.getInstance()
+                .displayImageForCircle(mPhotoView, new Gson().fromJson(data, User.class).data.photoUrl);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+        unRegisterUserReceiver();
     }
 
     //启动检查更新

@@ -8,10 +8,10 @@ import android.view.View;
 
 import com.ft.login.inter.IUserLoginView;
 import com.ft.login.presenter.UserLoginPresenter;
-import com.lib.ui.base.BaseActivity;
+import com.lib.ui.base.PluginBaseActivity;
 
 
-public class LoginActivity extends BaseActivity implements IUserLoginView {
+public class LoginActivity extends PluginBaseActivity implements IUserLoginView {
 
     private UserLoginPresenter mUserLoginPresenter;
 
@@ -25,7 +25,7 @@ public class LoginActivity extends BaseActivity implements IUserLoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_layout);
         //初始化P层
-        mUserLoginPresenter = new UserLoginPresenter(this);
+        mUserLoginPresenter = new UserLoginPresenter(this,this);
         findViewById(R.id.login_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

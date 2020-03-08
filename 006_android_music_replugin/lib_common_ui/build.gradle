@@ -25,8 +25,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.depsLibs.appcompact
+    compileOnly rootProject.depsLibs.appcompact
     compileOnly rootProject.depsLibs.recyclerview
     api rootProject.depsLibs.magicindicator
     compileOnly project(':lib_image_loader')
+    //占位插件库工程
+    compileOnly "com.qihoo360.replugin:replugin-plugin-lib:2.3.3"
 }
