@@ -50,4 +50,5 @@ dependencies {
         exclude group: 'com.android.support'
     }
     annotationProcessor rootProject.depsLibs.aroutercompiler
+    compileOnly "com.qihoo360.replugin:replugin-plugin-lib:2.3.3"
 }

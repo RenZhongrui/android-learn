@@ -1,15 +1,16 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 apply plugin: 'com.alibaba.arouter' // 2、arouter插件配置
 android {
     compileSdkVersion rootProject.android.compileSdkVersion
     buildToolsVersion rootProject.android.buildToolsVersion
 
     defaultConfig {
+        applicationId 'com.ft.home'
         minSdkVersion rootProject.android.minSdkVersion
         targetSdkVersion rootProject.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        //multiDexEnabled false
+        multiDexEnabled false
 
         consumerProguardFiles 'consumer-rules.pro'
 
@@ -47,33 +48,41 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly rootProject.depsLibs.appcompact
-    compileOnly rootProject.depsLibs.recyclerview
-    compileOnly rootProject.depsLibs.eventbus
+    implementation rootProject.depsLibs.appcompact
+    implementation rootProject.depsLibs.recyclerview
+    implementation rootProject.depsLibs.eventbus
+    //greendao类库依赖
+    implementation rootProject.depsLibs.greendao
+    //rxjava库
+    implementation rootProject.depsLibs.rxjava
+    implementation rootProject.depsLibs.rxandroid
     //gson解析库
-    compileOnly rootProject.depsLibs.gson
+    implementation rootProject.depsLibs.gson
 
     // 4、arouter库
-    compileOnly(rootProject.depsLibs.arouterapi) {
+    implementation(rootProject.depsLibs.arouterapi) {
         exclude group: 'com.android.support'
     }
     annotationProcessor rootProject.depsLibs.aroutercompiler
 
-    compileOnly project(':lib_base')
+    implementation project(':lib_base')
     //网络请求库
-    compileOnly project(':lib_network')
+    implementation project(':lib_network')
     //基础UI库
-    compileOnly project(':lib_common_ui')
+    implementation project(':lib_common_ui')
     //app下载更新库
-    compileOnly project(':lib_update')
+    implementation project(':lib_update')
     //图片加载库
-    compileOnly project(':lib_image_loader')
+    implementation project(':lib_image_loader')
     //视频播放器组件
-    compileOnly project(':lib_video')
+    implementation project(':lib_video')
+    //音频播放器组
+    implementation project(':ft_audio')
+    //webview库
+    implementation project(':lib_webview')
 
 }
 
-/*
 apply plugin: 'replugin-plugin-gradle'
 
 repluginPluginConfig {
@@ -82,7 +91,6 @@ repluginPluginConfig {
     hostAppLauncherActivity = "com.learn.music.loading.LoadingActivity" //宿主工程启动activity
 }
 
-*/
 dependencies {
-    compileOnly "com.qihoo360.replugin:replugin-plugin-lib:2.3.3"
+    implementation "com.qihoo360.replugin:replugin-plugin-lib:2.3.3"
 }

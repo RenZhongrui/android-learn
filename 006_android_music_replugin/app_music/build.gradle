@@ -37,19 +37,6 @@ android {
     }
 
 }
-apply plugin: 'replugin-host-gradle'
-/**
- * 配置项均为可选配置，默认无需添加
- * 更多可选配置项参见replugin-host-gradle的RepluginConfig类
- * 可更改配置项参见 自动生成RePluginHostConfig.java
- */
-repluginHostConfig {
-    /**
-     * 是否使用 AppCompat 库
-     * 不需要个性化配置时，无需添加
-     */
-    useAppCompat = true
-}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -84,8 +71,6 @@ dependencies {
     implementation project(':lib_webview')
     //网络请求库
     implementation project(':lib_network')
-    //app下载更新库
-    implementation project(':lib_update')
     //分享库
     implementation project(':lib_share')
     //图片加载库
@@ -95,8 +80,25 @@ dependencies {
 
     // 业务库
     //implementation project(':ft_login')
-    implementation project(':ft_home')
+    //implementation project(':ft_home')
     implementation project(':ft_loading')
 
+}
+
+apply plugin: 'replugin-host-gradle'
+/**
+ * 配置项均为可选配置，默认无需添加
+ * 更多可选配置项参见replugin-host-gradle的RepluginConfig类
+ * 可更改配置项参见 自动生成RePluginHostConfig.java
+ */
+repluginHostConfig {
+    /**
+     * 是否使用 AppCompat 库
+     * 不需要个性化配置时，无需添加
+     */
+    useAppCompat = true
+}
+
+dependencies {
     implementation 'com.qihoo360.replugin:replugin-host-lib:2.3.3'
 }

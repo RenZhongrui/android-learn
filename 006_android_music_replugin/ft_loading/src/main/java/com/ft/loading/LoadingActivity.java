@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import com.lib.base.home.HomeImpl;
+import com.lib.base.home.HomePluginConfig;
 import com.lib.pullalive.AliveJobService;
 import com.lib.ui.base.BaseActivity;
 import com.lib.ui.base.Constant;
+import com.qihoo360.replugin.RePlugin;
 
 
 public class LoadingActivity extends BaseActivity {
@@ -19,7 +20,11 @@ public class LoadingActivity extends BaseActivity {
         @Override
         public void handleMessage(Message msg) {
             //startActivity(new Intent(LoadingActivity.this, HomeActivity.class));
-            HomeImpl.getInstance().startActivity(LoadingActivity.this);
+            // HomeImpl.getInstance().startActivity(LoadingActivity.this);
+            Intent intent = RePlugin.createIntent(HomePluginConfig.PLUGIN_NAME,
+                    HomePluginConfig.PAGE.PAGE_HOME);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            RePlugin.startActivity(LoadingActivity.this, intent);
             finish();
         }
     };

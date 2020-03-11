@@ -4,7 +4,6 @@ package com.learn.music.application;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.lib.audio.utils.AudioHelper;
 import com.lib.share.ShareManager;
-import com.lib.update.UpdateHelper;
 import com.lib.video.VideoHelper;
 import com.qihoo360.replugin.RePluginApplication;
 
@@ -22,8 +21,6 @@ public class MusicApplication extends RePluginApplication {
         ShareManager.initSDK(this);
         //视频SDK初始化
         VideoHelper.init(this);
-        //更新组件下载
-        UpdateHelper.init(this);
         //ARouter初始化
         ARouter.init(this);
         ARouter.openLog();

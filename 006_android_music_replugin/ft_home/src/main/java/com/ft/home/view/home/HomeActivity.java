@@ -28,7 +28,6 @@ import com.lib.base.login.LoginPluginConfig;
 import com.lib.base.login.model.LoginEvent;
 import com.lib.base.login.model.User;
 import com.lib.image.loader.app.ImageLoaderManager;
-import com.lib.ui.base.BaseActivity;
 import com.lib.ui.base.PluginBaseActivity;
 import com.lib.ui.pager_indictor.ScaleTransitionPagerTitleView;
 import com.lib.update.UpdateHelper;
@@ -48,7 +47,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends BaseActivity implements View.OnClickListener {
+public class HomeActivity extends PluginBaseActivity implements View.OnClickListener {
     private static final CHANNEL[] CHANNELS =
             new CHANNEL[]{CHANNEL.MY, CHANNEL.DISCORY, CHANNEL.FRIEND};
 
@@ -120,7 +119,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                         "2:45"));
 
         // 启动音乐播放服务
-        AudioImpl.getInstance().startMusicService(mLists);
+        //AudioImpl.getInstance().startMusicService(mLists);
 
     }
 
