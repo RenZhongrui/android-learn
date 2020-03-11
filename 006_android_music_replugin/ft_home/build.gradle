@@ -46,9 +46,18 @@ android {
 
 }
 
+configurations.all {
+    exclude group: 'com.android.support', module: 'support-fragment'
+    //exclude group: 'androidx.fragment', module: 'fragment'
+    //exclude group: 'androidx.viewpager', module: 'viewpager'
+    exclude group: 'com.android.support', module: 'viewpager'
+}
+
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.depsLibs.appcompact
+    implementation(rootProject.depsLibs.appcompact) {
+        //exclude group: 'androidx.fragment', module: 'fragment'
+        exclude group: 'com.android.support', module: 'support-fragment'
+    }
     implementation rootProject.depsLibs.recyclerview
     implementation rootProject.depsLibs.eventbus
     //greendao类库依赖
@@ -93,4 +102,6 @@ repluginPluginConfig {
 
 dependencies {
     implementation "com.qihoo360.replugin:replugin-plugin-lib:2.3.3"
+    compileOnly files('libs/fragment.jar')
+    compileOnly files('libs/viewpager.jar')
 }

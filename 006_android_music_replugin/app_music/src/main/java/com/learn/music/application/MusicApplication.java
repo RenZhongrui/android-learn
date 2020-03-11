@@ -6,6 +6,7 @@ import com.lib.audio.utils.AudioHelper;
 import com.lib.share.ShareManager;
 import com.lib.video.VideoHelper;
 import com.qihoo360.replugin.RePluginApplication;
+import com.qihoo360.replugin.RePluginConfig;
 
 public class MusicApplication extends RePluginApplication {
 
@@ -29,5 +30,13 @@ public class MusicApplication extends RePluginApplication {
 
     public static MusicApplication getInstance() {
         return mApplication;
+    }
+
+    @Override
+    protected RePluginConfig createConfig() {
+        RePluginConfig config = super.createConfig();
+        //使插件可以使用主工程中的类
+        config.setUseHostClassIfNotFound(true);
+        return config;
     }
 }

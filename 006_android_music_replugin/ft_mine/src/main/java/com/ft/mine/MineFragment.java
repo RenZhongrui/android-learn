@@ -1,4 +1,4 @@
-package com.ft.home.view.mine;
+package com.ft.mine;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ft.home.R;
+import com.qihoo360.replugin.RePlugin;
 
 
 public class MineFragment extends Fragment {
@@ -24,14 +24,15 @@ public class MineFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext = getActivity();
+        mContext = RePlugin.getPluginContext();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_mine_layout, null);
+        // inflater是宿主工程的，需要使用插件的context来构造
+        View rootView = LayoutInflater.from(RePlugin.getPluginContext()).inflate(R.layout.fragment_mine_layout, null);
         return rootView;
     }
 

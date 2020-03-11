@@ -20,7 +20,6 @@ import com.ft.home.constant.Constant;
 import com.ft.home.model.CHANNEL;
 import com.ft.home.view.home.adpater.HomePagerAdapter;
 import com.google.gson.Gson;
-import com.lib.base.audio.AudioImpl;
 import com.lib.base.audio.model.CommonAudioBean;
 import com.lib.base.login.ILoginService;
 import com.lib.base.login.LoginImpl;

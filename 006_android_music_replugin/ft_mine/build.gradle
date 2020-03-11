@@ -5,7 +5,7 @@ android {
     buildToolsVersion rootProject.android.buildToolsVersion
 
     defaultConfig {
-        applicationId 'com.ft.home'
+        applicationId 'com.ft.mine'
         minSdkVersion rootProject.android.minSdkVersion
         targetSdkVersion rootProject.android.targetSdkVersion
         versionCode 1
@@ -21,9 +21,37 @@ android {
         }
     }
 
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+}
+
+configurations.all {
+    exclude group: 'com.android.support', module: 'support-fragment'
+    //exclude group: 'androidx.fragment', module: 'fragment'
+    //exclude group: 'androidx.viewpager', module: 'viewpager'
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation(rootProject.depsLibs.appcompact) {
+        //exclude group: 'androidx.fragment', module: 'fragment'
+        exclude group: 'com.android.support', module: 'support-fragment'
+    }
 
+}
+
+//插件化相关
+apply plugin: 'replugin-plugin-gradle'
+repluginPluginConfig {
+    pluginName = "ft_mine"
+    hostApplicationId = "com.ft.mine"
+    hostAppLauncherActivity = "com.learn.music.loading.LoadingActivity"
+}
+
+dependencies {
+    implementation "com.qihoo360.replugin:replugin-plugin-lib:2.3.3"
+    compileOnly files('libs/fragment.jar')
 }
