@@ -7,8 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.ft.home.model.CHANNEL;
-import com.ft.home.view.discory.DiscoryFragment;
-import com.ft.home.view.friend.FriendFragment;
 import com.qihoo360.replugin.RePlugin;
 
 
@@ -29,9 +27,9 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
             case CHANNEL.MINE_ID:
                 return getCorrectFragment("ft_mine", "com.ft.mine.MineFragment");
             case CHANNEL.DISCORY_ID:
-                return DiscoryFragment.newInstance();
+                return getCorrectFragment("ft_discovery", "com.ft.discovery.DiscoryFragment");
             case CHANNEL.FRIEND_ID:
-                return FriendFragment.newInstance();
+                return getCorrectFragment("ft_friend", "com.ft.friend.view.FriendFragment");
         /*    case CHANNEL.VIDEO_ID:
                 return VideoFragment.newInstance();*/
         }

@@ -1,2 +1,2 @@
-include ':app_music', ':ft_audio', ':lib_common_ui', ':lib_image_loader', ':lib_network', ':lib_pullalive', ':lib_qrcode', ':lib_share', ':lib_update', ':lib_video', ':lib_webview', ':lib_base', ':ft_login', ':ft_home', ':ft_loading', ':ft_mine'
+include ':app_music', ':ft_audio', ':lib_common_ui', ':lib_image_loader', ':lib_network', ':lib_pullalive', ':lib_qrcode', ':lib_share', ':lib_update', ':lib_video', ':lib_webview', ':lib_base', ':ft_login', ':ft_home', ':ft_loading', ':ft_mine', ':ft_discovery', ':ft_friend'
 rootProject.name='006_android_music_replugin'

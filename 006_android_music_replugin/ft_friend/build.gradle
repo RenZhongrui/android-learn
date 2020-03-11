@@ -1,0 +1,146 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.alibaba.arouter'
+
+android {
+    compileSdkVersion rootProject.android.compileSdkVersion
+    buildToolsVersion rootProject.android.buildToolsVersion
+
+
+    defaultConfig {
+        applicationId 'com.ft.friend'
+        minSdkVersion rootProject.android.minSdkVersion
+        targetSdkVersion rootProject.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        consumerProguardFiles 'consumer-rules.pro'
+
+        //ARouter配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+configurations.all {
+    exclude group: 'com.android.support', module: 'support-fragment'
+}
+configurations {
+    all*.exclude group: 'androidx.arch.core'
+    all*.exclude group: 'androidx.lifecycle'
+    all*.exclude group: 'androidx.paging'
+    all*.exclude group: 'androidx.room'
+    all*.exclude group: 'androidx.sqlite'
+    all*.exclude group: 'androidx.constraintlayout'
+    all*.exclude group: 'androidx.vectordrawable'
+    all*.exclude group: 'androidx.appcompat'
+    all*.exclude group: 'androidx.asynclayoutinflater'
+    all*.exclude group: 'androidx.cardview'
+    all*.exclude group: 'androidx.car'
+    all*.exclude group: 'androidx.collection'
+    all*.exclude group: 'androidx.coordinatorlayout'
+    all*.exclude group: 'androidx.cursoradapter'
+    all*.exclude group: 'androidx.browser'
+    all*.exclude group: 'androidx.customview'
+    all*.exclude group: 'com.google.android.material'
+    all*.exclude group: 'androidx.documentfile'
+    all*.exclude group: 'androidx.drawerlayout'
+    all*.exclude group: 'androidx.exifinterface'
+    all*.exclude group: 'androidx.gridlayout'
+    all*.exclude group: 'androidx.heifwriter'
+    all*.exclude group: 'androidx.interpolator'
+    all*.exclude group: 'androidx.leanback'
+    all*.exclude group: 'androidx.loader'
+    all*.exclude group: 'androidx.localbroadcastmanager'
+    all*.exclude group: 'androidx.media2'
+    all*.exclude group: 'androidx.mediarouter'
+    all*.exclude group: 'androidx.multidex'
+    all*.exclude group: 'androidx.palette'
+    all*.exclude group: 'androidx.percentlayout'
+    all*.exclude group: 'androidx.leanback'
+    all*.exclude group: 'androidx.legacy'
+    all*.exclude group: 'androidx.preference'
+    all*.exclude group: 'androidx.print'
+    all*.exclude group: 'androidx.recommendation'
+    all*.exclude group: 'androidx.recyclerview'
+    all*.exclude group: 'androidx.slice'
+    all*.exclude group: 'androidx.slidingpanelayout'
+    all*.exclude group: 'androidx.annotation'
+    all*.exclude group: 'androidx.core'
+    all*.exclude group: 'androidx.contentpager'
+    all*.exclude group: 'androidx.legacy'
+    all*.exclude group: 'androidx.dynamicanimation'
+    all*.exclude group: 'androidx.emoji'
+    all*.exclude group: 'androidx.fragment'
+    all*.exclude group: 'androidx.media'
+    all*.exclude group: 'androidx.tvprovider'
+    all*.exclude group: 'androidx.vectordrawable'
+    all*.exclude group: 'androidx.swiperefreshlayout'
+    all*.exclude group: 'androidx.textclassifier'
+    all*.exclude group: 'androidx.transition'
+    all*.exclude group: 'androidx.versionedparcelable'
+    all*.exclude group: 'androidx.viewpager'
+    all*.exclude group: 'androidx.wear'
+    all*.exclude group: 'androidx.webkit'
+}
+
+
+dependencies {
+    implementation(rootProject.depsLibs.appcompact) {
+        exclude group: 'com.android.support', module: 'support-fragment'
+    }
+    implementation rootProject.depsLibs.design
+    implementation rootProject.depsLibs.recyclerview
+
+    //gson解析库
+    implementation rootProject.depsLibs.gson
+    //arouter库
+    implementation(rootProject.depsLibs.arouterapi) {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor rootProject.depsLibs.aroutercompiler
+    //网络请求库
+    implementation project(':lib_network')
+    //图片加载库
+    implementation project(':lib_image_loader')
+    //业务基础库
+    implementation project(':lib_base')
+    //基础UI库
+    implementation project(':lib_common_ui')
+    //视频播放器组件
+    implementation project(':lib_video')
+
+}
+
+apply plugin: 'replugin-plugin-gradle'
+
+repluginPluginConfig {
+    pluginName = 'ft_friend'
+    hostApplicationId = 'com.learn.music'
+    hostAppLauncherActivity = "com.learn.music.loading.LoadingActivity" //宿主工程启动activity
+}
+
+dependencies {
+    implementation "com.qihoo360.replugin:replugin-plugin-lib:2.3.3"
+    compileOnly files('libs/fragment.jar')
+}

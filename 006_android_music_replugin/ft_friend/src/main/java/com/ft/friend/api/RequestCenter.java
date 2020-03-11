@@ -1,6 +1,7 @@
-package com.ft.home.api;
+package com.ft.friend.api;
 
 
+import com.ft.friend.model.BaseFriendModel;
 import com.lib.network.CommonOkHttpClient;
 import com.lib.network.listener.DisposeDataHandle;
 import com.lib.network.listener.DisposeDataListener;
@@ -32,6 +33,10 @@ public class RequestCenter {
                                   Class<?> clazz) {
         CommonOkHttpClient.get(CommonRequest.
                 createGetRequest(url, params), new DisposeDataHandle(listener, clazz));
+    }
+
+    public static void requestFriendData(DisposeDataListener listener) {
+        RequestCenter.getRequest(HttpConstants.HOME_FRIEND, null, listener, BaseFriendModel.class);
     }
 
 }
