@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app_music" />
+            <option value="$PROJECT_DIR$/ft_audio" />
+            <option value="$PROJECT_DIR$/ft_discovery" />
+            <option value="$PROJECT_DIR$/ft_friend" />
+            <option value="$PROJECT_DIR$/ft_home" />
+            <option value="$PROJECT_DIR$/ft_loading" />
+            <option value="$PROJECT_DIR$/ft_login" />
+            <option value="$PROJECT_DIR$/ft_mine" />
+            <option value="$PROJECT_DIR$/lib_base" />
+            <option value="$PROJECT_DIR$/lib_common_ui" />
+            <option value="$PROJECT_DIR$/lib_image_loader" />
+            <option value="$PROJECT_DIR$/lib_network" />
+            <option value="$PROJECT_DIR$/lib_pullalive" />
+            <option value="$PROJECT_DIR$/lib_qrcode" />
+            <option value="$PROJECT_DIR$/lib_share" />
+            <option value="$PROJECT_DIR$/lib_update" />
+            <option value="$PROJECT_DIR$/lib_video" />
+            <option value="$PROJECT_DIR$/lib_webview" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
