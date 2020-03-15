@@ -21,5 +21,14 @@ public class MyPlugin implements Plugin<Project> {
             }
         });
 
+        // 创建自定义task 在控制台执行命令：gradlew releaseInfoTask
+        ReleaseInfoTask releaseInfoTask = project.getTasks().create("releaseInfoTask", ReleaseInfoTask.class, new Action<ReleaseInfoTask>() {
+            @Override
+            public void execute(ReleaseInfoTask releaseInfoTask) {
+                System.out.println("execute task");
+            }
+        });
+
+
     }
 }

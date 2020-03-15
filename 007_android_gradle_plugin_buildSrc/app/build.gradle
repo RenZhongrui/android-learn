@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.learn.plugin'
 
-// é…ç½®è‡ªå®šä¹‰æ‰©å±•
+// ÅäÖÃ×Ô¶¨ÒåÀ©Õ¹
 testGradlePlugin{
     version 2
     name 'test gradle plugin'
@@ -29,4 +29,3 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
 }
-

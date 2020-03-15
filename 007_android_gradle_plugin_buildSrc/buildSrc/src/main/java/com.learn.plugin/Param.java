@@ -3,7 +3,7 @@ package com.learn.plugin;
 /**
  * create: Ren Zhongrui
  * date: 2020-03-15
- * description: åˆ›å»ºbeanå®ä½“æ¥å­˜å‚¨æ‰©å±•å‚æ•°
+ * description: ´´½¨beanÊµÌåÀ´´æ´¢À©Õ¹²ÎÊı
  */
 public class Param {
 
