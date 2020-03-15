@@ -1,6 +1,11 @@
-
 apply plugin: 'com.android.application'
 apply plugin: 'com.learn.plugin'
+
+// 配置自定义扩展
+testGradlePlugin{
+    version 2
+    name 'test gradle plugin'
+}
 
 android {
     compileSdkVersion 29
