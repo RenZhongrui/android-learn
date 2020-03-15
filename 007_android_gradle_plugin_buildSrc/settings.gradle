@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='007_android_gradle_plugin_buildSrc'

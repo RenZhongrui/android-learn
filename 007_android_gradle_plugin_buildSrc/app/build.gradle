@@ -1,6 +1,6 @@
 
 apply plugin: 'com.android.application'
-//apply plugin: 'com.gradle.plugin.MyPlugin'
+apply plugin: 'com.learn.plugin'
 
 android {
     compileSdkVersion 29
