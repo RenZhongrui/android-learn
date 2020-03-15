@@ -8,6 +8,6 @@ public class MyPlugin implements Plugin<Project> {
 
     @Override
     public void apply(Project project) {
-        System.out.println("22222222222222222");
+        System.out.println("11111111111111");
     }
 }
