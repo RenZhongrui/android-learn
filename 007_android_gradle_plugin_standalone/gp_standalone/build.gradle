@@ -1,0 +1,36 @@
+apply plugin: 'java-library'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //gradle sdk
+    implementation gradleApi()
+    //groovy sdk
+    implementation localGroovy()
+}
+
+def pomVersionName = '1.0.0-SNAPSHOT'
+def pomDescription = 'the gradle plugin'
+
+//上传maven配置
+uploadArchives{
+    repositories {
+        mavenDeployer {
+            repository(url: NEXUS_REPOSITORY_URL) {
+                authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+            }
+            pom.project {
+                name "upload"
+                version pomVersionName
+                description pomDescription
+                artifactId "plugin"
+                groupId "com.learn.gradle"
+                packaging "aar"
+            }
+        }
+    }
+}
+

@@ -1,0 +1,2 @@
+include ':app', ':gp_standalone'
+rootProject.name='007_android_gradle_plugin_standalone'

@@ -1,0 +1,58 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral();
+        maven {
+            url "http://101.200.147.104:8081/repository/maven-releases/"
+            credentials {
+                username "admin"
+                password "123456"
+            }
+        }
+
+        maven {
+            url "http://101.200.147.104:8081/repository/maven-snapshots/"
+            credentials {
+                username "admin"
+                password "123456"
+            }
+        }
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.1'
+        //格式为-->group:module:version
+        classpath 'com.learn.gradle:plugin:1.0.0-SNAPSHOT'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral();
+        maven {
+            url "http://101.200.147.104:8081/repository/maven-releases/"
+            credentials {
+                username "admin"
+                password "123456"
+            }
+        }
+
+        maven {
+            url "http://101.200.147.104:8081/repository/maven-snapshots/"
+            credentials {
+                username "admin"
+                password "123456"
+            }
+        }
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
