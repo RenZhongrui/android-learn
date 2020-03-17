@@ -1,2 +1,2 @@
-include ':app', ':gp_standalone'
+include ':app', ':gp_maven'
 rootProject.name='007_android_gradle_plugin_standalone'

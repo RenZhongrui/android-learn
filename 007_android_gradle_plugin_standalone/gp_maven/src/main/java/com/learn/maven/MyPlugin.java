@@ -1,4 +1,4 @@
-package com.learn.plugin;
+package com.learn.maven;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;

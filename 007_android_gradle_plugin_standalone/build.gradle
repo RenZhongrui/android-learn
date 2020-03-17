@@ -28,7 +28,7 @@ buildscript {
         //格式为-->group:module:version
         //classpath 'com.learn.gradle:plugin:1.0.0-SNAPSHOT'
         // 上传到release则用1.0.0，上传到SNAPSHOT则用1.0.0-SNAPSHOT
-        classpath 'com.learn.plugin:gp_standalone:1.0.0'
+        classpath 'com.learn.plugin:gp_maven:1.0.0'
     }
 }
 
