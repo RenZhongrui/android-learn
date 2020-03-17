@@ -25,7 +25,9 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.1'
         //格式为-->group:module:version
-        classpath 'com.learn.gradle:plugin:1.0.0-SNAPSHOT'
+        //classpath 'com.learn.gradle:plugin:1.0.0-SNAPSHOT'
+        // 上传到release则用1.0.0，上传到SNAPSHOT则用1.0.0-SNAPSHOT
+        classpath 'com.learn.gradle:gp_standalone:1.0.0'
     }
 }
 

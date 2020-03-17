@@ -11,8 +11,9 @@ dependencies {
     //groovy sdk
     implementation localGroovy()
 }
-
-def pomVersionName = '1.0.0-SNAPSHOT'
+// 上传到release则用1.0.0，上传到SNAPSHOT则用1.0.0-SNAPSHOT
+//def pomVersionName = '1.0.0-SNAPSHOT'
+def pomVersionName = '1.0.0'
 def pomDescription = 'the gradle plugin'
 
 //上传maven配置
@@ -26,11 +27,10 @@ uploadArchives{
                 name "upload"
                 version pomVersionName
                 description pomDescription
-                artifactId "plugin"
+                artifactId "gp_standalone"
                 groupId "com.learn.gradle"
                 packaging "aar"
             }
         }
     }
 }
-

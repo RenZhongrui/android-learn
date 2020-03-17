@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-// apply plugin: 'com.learn.plugin' 使用插件会报错
+//apply plugin: 'com.learn.plugin' //使用插件会报错
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
@@ -21,5 +21,5 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.learn.gradle:plugin:1.0.0-SNAPSHOT'
+    //implementation 'com.learn.gradle:plugin:1.0.0-SNAPSHOT'
 }

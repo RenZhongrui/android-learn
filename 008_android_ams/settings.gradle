@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':gp_ams'
 rootProject.name='008_android_ams'
