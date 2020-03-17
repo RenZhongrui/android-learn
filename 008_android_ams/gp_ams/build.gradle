@@ -22,7 +22,10 @@ uploadArchives {
     repositories {
         mavenDeployer {
             //本地的Maven地址:当前工程下
-            repository(url: uri('./gradle-plugin'))
+            // repository(url: uri('./gradle-plugin'))
+            repository(url: 'http://101.200.147.104:8081/repository/maven-releases/') {
+                authentication(userName: 'admin', password: '123456')
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'com.learn.plugin' //使用插件会报错
+apply plugin: 'com.learn.plugin' //使用插件会报错
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"

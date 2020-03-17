@@ -1,20 +1,23 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
     repositories {
         google()
         jcenter()
-        maven {
+     /*   maven {
             url uri('./gp_ams/gradle-plugin')
+        }*/
+
+        maven {
+            url "http://101.200.147.104:8081/repository/maven-releases/"
+            credentials {
+                username "admin"
+                password "123456"
+            }
         }
         
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.1'
         classpath 'com.ams.plugin:gp_ams:1.0.0'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
 }
 
@@ -22,7 +25,13 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        maven {
+            url "http://101.200.147.104:8081/repository/maven-releases/"
+            credentials {
+                username "admin"
+                password "123456"
+            }
+        }
     }
 }
 

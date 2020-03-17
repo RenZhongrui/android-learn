@@ -4,7 +4,9 @@ buildscript {
     repositories {
         google()
         jcenter()
-        mavenCentral();
+     /*   maven {
+            url uri('./gp_standalone/gradle-plugin')
+        }*/
         maven {
             url "http://101.200.147.104:8081/repository/maven-releases/"
             credentials {
@@ -12,14 +14,13 @@ buildscript {
                 password "123456"
             }
         }
-
-        maven {
+     /*   maven {
             url "http://101.200.147.104:8081/repository/maven-snapshots/"
             credentials {
                 username "admin"
                 password "123456"
             }
-        }
+        }*/
         
     }
     dependencies {
@@ -27,7 +28,7 @@ buildscript {
         //格式为-->group:module:version
         //classpath 'com.learn.gradle:plugin:1.0.0-SNAPSHOT'
         // 上传到release则用1.0.0，上传到SNAPSHOT则用1.0.0-SNAPSHOT
-        classpath 'com.learn.gradle:gp_standalone:1.0.0'
+        classpath 'com.learn.plugin:gp_standalone:1.0.0'
     }
 }
 
@@ -35,7 +36,9 @@ allprojects {
     repositories {
         google()
         jcenter()
-        mavenCentral();
+      /*  maven {
+            url uri('./gp_standalone/gradle-plugin')
+        }*/
         maven {
             url "http://101.200.147.104:8081/repository/maven-releases/"
             credentials {
@@ -43,14 +46,13 @@ allprojects {
                 password "123456"
             }
         }
-
-        maven {
+    /*    maven {
             url "http://101.200.147.104:8081/repository/maven-snapshots/"
             credentials {
                 username "admin"
                 password "123456"
             }
-        }
+        }*/
         
     }
 }

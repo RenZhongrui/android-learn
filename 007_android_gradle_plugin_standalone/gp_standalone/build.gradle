@@ -16,21 +16,24 @@ dependencies {
 def pomVersionName = '1.0.0'
 def pomDescription = 'the gradle plugin'
 
+group='com.learn.plugin'
+version='1.0.0'
 //上传maven配置
 uploadArchives{
     repositories {
         mavenDeployer {
+            //repository(url: uri('./gradle-plugin'))
             repository(url: NEXUS_REPOSITORY_URL) {
                 authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
             }
-            pom.project {
+      /*      pom.project {
                 name "upload"
                 version pomVersionName
                 description pomDescription
                 artifactId "gp_standalone"
-                groupId "com.learn.gradle"
+                groupId "com.learn.plugin"
                 packaging "aar"
-            }
+            }*/
         }
     }
 }
