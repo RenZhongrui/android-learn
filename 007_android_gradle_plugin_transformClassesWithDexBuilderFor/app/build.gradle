@@ -1,0 +1,104 @@
+import org.objectweb.asm.ClassReader
+import org.objectweb.asm.ClassVisitor
+import org.objectweb.asm.ClassWriter
+import org.objectweb.asm.MethodVisitor
+import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Type
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "com.learn.gradle.dexbuilder"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    compileOnly 'org.ow2.asm:asm-all:5.2'
+}
+
+// gradle执行会解析gradle.build文件，afterEvaluate表示在执行完成之后再执行里面的代码
+afterEvaluate {
+    android.applicationVariants.all() {
+        variant->
+            // 获得debug或release
+            String variantName = variant.getName();
+            System.out.println("variantName:::"+variantName)
+            variantName = variantName.capitalize();
+            Task dexTask = project.getTasks().findByName("transformClassesWithDexBuilderFor" + variantName);
+            dexTask.doFirst {
+                Set<File> files = dexTask.getInputs().getFiles()getFiles();
+                for (File file: files) {
+                    String filePath = file.getAbsolutePath();
+                    System.out.println("filePath:"+filePath)
+                    if (filePath.endsWith(".jar")) {
+
+                    } else if(filePath.endsWith(".class")){
+                        processClass(variant.getDirName(),file);
+                    }
+                }
+            }
+    }
+}
+// 路径包括目录+包名+类名
+// filePath:D:\Learn\007_android_gradle_plugin_transformClassesWithDexBuilderFor\app\build\intermediates\javac\release\classes\com\learn\gradle\dexbuilder\R$style.class
+static void processClass(String dirName, File file) {
+    System.out.println("dirName:"+dirName) // release或debug
+    String filePath = file.getAbsolutePath();
+    // className是包名+类名
+    String className = filePath.split(dirName)[1].substring(1);
+    // classes\com\learn\gradle\dexbuilder\R$style.class
+    System.out.println("className:"+className)
+    if (isAndroidClass(className)) return;
+    try {
+        FileInputStream fis = new FileInputStream(filePath);
+        byte[] byteCode = referHackWhenInit(fis);
+        fis.close();
+        FileOutputStream fos = new FileOutputStream(filePath);
+        fos.write(byteCode);
+        fos.close();
+    }catch(Exception e) {
+        e.printStackTrace()
+    }
+
+}
+
+static boolean isAndroidClass(String className) {
+    return className.startsWith("android") || className.startsWith("androidx");
+}
+
+static byte[] referHackWhenInit(FileInputStream fis) {
+    ClassReader classReader = new ClassReader(fis);
+    ClassWriter classWriter = new ClassWriter(classReader,0);
+    ClassVisitor classVisitor = new ClassVisitor(Opcodes.ASM5, classWriter) {
+        @Override
+        MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
+            MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions)
+            mv = new MethodVisitor(Opcodes.ASM5, mv) {
+                @Override
+                void visitInsn(int opcode) {
+                    if("<init>".equals(name) && opcode==Opcodes.RETURN) {
+                        // 往构造函数中插入外部dex的AntilazyLoad类
+                        super.visitLdcInsn(Type.getType("Lcom/learn/patch/hack/AntilazyLoad;"))
+                    }
+                    super.visitInsn(opcode)
+                }
+            }
+            return mv;
+        }
+    }
+}
