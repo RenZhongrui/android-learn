@@ -13,6 +13,12 @@ import java.util.concurrent.TimeUnit;
  * create: Ren Zhongrui
  * date: 2020-03-23
  * description: 线程池管理类
+ * 原理：
+ * 1、将请求放到队列中
+ * 2、创建线程池和使用线程池执行叫号线程和延迟线程
+ * 3、创建获取队列的线程，叫号线程，在此线程中获取队列中的请求任务，然后由线程池来执行队列中的每一个异步请求任务
+ * 4、重试机制：由延迟队列和延迟线程来维护，线程池来执行，执行失败则添加到延迟队列中重新排队
+ *
  */
 public class ThreadPoolManager {
 
