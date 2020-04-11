@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='012_android_gray'
