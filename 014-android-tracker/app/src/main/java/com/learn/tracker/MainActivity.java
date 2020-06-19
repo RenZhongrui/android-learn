@@ -1,13 +1,14 @@
-package com.learn.alias;
-
-import android.os.Bundle;
+package com.learn.tracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AliasActivity extends AppCompatActivity {
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
     }
 }
