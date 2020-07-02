@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        consumerProguardFiles 'proguard-rules.pro'
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/cpp/libxcrash/Android.mk'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.ext.javaVersion
+        targetCompatibility rootProject.ext.javaVersion
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+}
+// 由于项目build路径 太深，所以配置build路径到d盘根目录
+buildDir = "d:/tmp/${rootProject.name}/${project.name}"
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+apply from: rootProject.file('gradle/check.gradle')
+apply from: rootProject.file('gradle/publish.gradle')

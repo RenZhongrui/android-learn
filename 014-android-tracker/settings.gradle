@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':lib_tracker'
 rootProject.name='014-android-tracker'
