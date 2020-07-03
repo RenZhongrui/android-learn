@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="6"
+    android:paddingLeft="17dp"
+    android:paddingRight="17dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/symbol0"
+            style="@style/KeyBroadKeyStyle" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol1" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol2" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol3" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol4" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol5" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol6" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol7" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol8" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol9"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol10" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol11"/>
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol12" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol13" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol14"/>
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol15" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol16"/>
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol17" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol18" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol19" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol20" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol21"/>
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol22" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol23"/>
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol24" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol25" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol26" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol27" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol28" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol29" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol30"/>
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:id="@+id/symbol31"/>
+        <TextView
+            android:id="@+id/key_symbol_number"
+            style="@style/KeyBroadKeyStyle"
+            android:text="123" />
+        <TextView
+            android:id="@+id/key_symbol_letter"
+            style="@style/KeyBroadKeyStyle"
+            android:text="ABC" />
+        <LinearLayout
+            android:id="@+id/key_symbol_delete"
+            style="@style/KeyBroadKeyStyle"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_clear" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

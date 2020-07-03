@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="6"
+    android:paddingLeft="17dp"
+    android:paddingRight="17dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/letter0"
+            style="@style/KeyBroadKeyStyle"
+            android:text="q" />
+
+        <TextView
+            android:id="@+id/letter1"
+            style="@style/KeyBroadKeyStyle"
+            android:text="w" />
+
+        <TextView
+            android:id="@+id/letter2"
+            style="@style/KeyBroadKeyStyle"
+            android:text="e" />
+
+        <TextView
+            android:id="@+id/letter3"
+            style="@style/KeyBroadKeyStyle"
+            android:text="r" />
+
+        <TextView
+            android:id="@+id/letter4"
+            style="@style/KeyBroadKeyStyle"
+            android:text="t" />
+
+        <TextView
+            android:id="@+id/letter5"
+            style="@style/KeyBroadKeyStyle"
+            android:text="y" />
+
+        <TextView
+            android:id="@+id/letter6"
+            style="@style/KeyBroadKeyStyle"
+            android:text="u" />
+
+        <TextView
+            android:id="@+id/letter7"
+            style="@style/KeyBroadKeyStyle"
+            android:text="i" />
+
+        <TextView
+            android:id="@+id/letter8"
+            style="@style/KeyBroadKeyStyle"
+            android:text="o" />
+
+        <TextView
+            android:id="@+id/letter9"
+            style="@style/KeyBroadKeyStyle"
+            android:text="p" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:background="@android:color/transparent"
+            android:layout_weight="0.5"/>
+        <TextView
+            android:id="@+id/letter10"
+            style="@style/KeyBroadKeyStyle"
+            android:text="a" />
+
+        <TextView
+            android:id="@+id/letter11"
+            style="@style/KeyBroadKeyStyle"
+            android:text="s" />
+
+        <TextView
+            android:id="@+id/letter12"
+            style="@style/KeyBroadKeyStyle"
+            android:text="d" />
+
+        <TextView
+            android:id="@+id/letter13"
+            style="@style/KeyBroadKeyStyle"
+            android:text="f" />
+
+        <TextView
+            android:id="@+id/letter14"
+            style="@style/KeyBroadKeyStyle"
+            android:text="g" />
+
+        <TextView
+            android:id="@+id/letter15"
+            style="@style/KeyBroadKeyStyle"
+            android:text="h" />
+
+        <TextView
+            android:id="@+id/letter16"
+            style="@style/KeyBroadKeyStyle"
+            android:text="j" />
+
+        <TextView
+            android:id="@+id/letter17"
+            style="@style/KeyBroadKeyStyle"
+            android:text="k" />
+
+        <TextView
+            android:id="@+id/letter18"
+            style="@style/KeyBroadKeyStyle"
+            android:text="l" />
+
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:background="@android:color/transparent"
+            android:layout_weight="0.5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:background="@android:color/transparent"
+            android:layout_weight="0.5" />
+        <LinearLayout
+            android:id="@+id/key_letter_toupcase"
+            style="@style/KeyBroadKeyStyle"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_up" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/letter19"
+            style="@style/KeyBroadKeyStyle"
+            android:text="z" />
+
+        <TextView
+            android:id="@+id/letter20"
+            style="@style/KeyBroadKeyStyle"
+            android:text="x" />
+
+        <TextView
+            android:id="@+id/letter21"
+            style="@style/KeyBroadKeyStyle"
+            android:text="c" />
+
+        <TextView
+            android:id="@+id/letter22"
+            style="@style/KeyBroadKeyStyle"
+            android:text="v" />
+
+        <TextView
+            android:id="@+id/letter23"
+            style="@style/KeyBroadKeyStyle"
+            android:text="b" />
+
+        <TextView
+            android:id="@+id/letter24"
+            style="@style/KeyBroadKeyStyle"
+            android:text="n" />
+
+        <TextView
+            android:id="@+id/letter25"
+            style="@style/KeyBroadKeyStyle"
+            android:text="m" />
+        <LinearLayout
+            android:id="@+id/key_letter_delete"
+            style="@style/KeyBroadKeyStyle"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_clear" />
+        </LinearLayout>
+        <TextView
+            style="@style/KeyBroadKeyStyle"
+            android:background="@android:color/transparent"
+            android:layout_weight="0.5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/key_letter_number"
+            style="@style/KeyBroadKeyStyle"
+            android:text="123" />
+        <TextView
+            android:id="@+id/key_letter_symbol"
+            style="@style/KeyBroadKeyStyle"
+            android:text="符" />
+    </LinearLayout>
+
+</LinearLayout>

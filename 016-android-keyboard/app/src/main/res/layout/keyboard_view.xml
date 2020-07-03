@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_toggle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:text="正在使用赞同安全键盘"
+            android:textColor="#686868"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/kb_close"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:drawableRight="@drawable/ic_keyboard_down"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:textColor="#686868"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="#D4D4D4" />
+
+    <include
+        android:id="@+id/layout_kb_number"
+        layout="@layout/keyboard_number_view" />
+
+    <include
+        android:id="@+id/layout_kb_letter"
+        layout="@layout/keyboard_letter_view"
+        android:visibility="gone" />
+
+    <include android:id="@+id/layout_kb_symbol"
+        layout="@layout/keyboard_symbol_view"
+        android:visibility="gone"/>
+</LinearLayout>
+

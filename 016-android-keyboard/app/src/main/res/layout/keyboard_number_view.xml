@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_weight="6"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="vertical">
+    <!--键盘第一行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp">
+
+        <TextView
+            android:id="@+id/num0"
+            style="@style/KeyBroadKeyStyle" />
+
+        <TextView
+            android:id="@+id/num1"
+            style="@style/KeyBroadKeyStyle" />
+
+        <TextView
+            android:id="@+id/num2"
+            style="@style/KeyBroadKeyStyle" />
+    </LinearLayout>
+    <!--键盘第二行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp">
+
+        <TextView
+            android:id="@+id/num3"
+            style="@style/KeyBroadKeyStyle" />
+
+        <TextView
+            android:id="@+id/num4"
+            style="@style/KeyBroadKeyStyle" />
+
+        <TextView
+            android:id="@+id/num5"
+            style="@style/KeyBroadKeyStyle" />
+    </LinearLayout>
+    <!--键盘第三行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp">
+
+        <TextView
+            android:id="@+id/num6"
+            style="@style/KeyBroadKeyStyle" />
+
+        <TextView
+            android:id="@+id/num7"
+            style="@style/KeyBroadKeyStyle" />
+
+        <TextView
+            android:id="@+id/num8"
+            style="@style/KeyBroadKeyStyle" />
+    </LinearLayout>
+    <!--键盘第四行-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp">
+
+        <LinearLayout
+            android:gravity="center"
+            style="@style/KeyBroadKeyStyle"
+            android:background="@android:color/transparent">
+
+            <TextView
+                android:id="@+id/key_number_symbol"
+                style="@style/KeyBroadKeyStyleItem"
+                android:layout_marginRight="3dp"
+                android:text="符" />
+
+            <TextView
+                android:id="@+id/key_number_letter"
+                style="@style/KeyBroadKeyStyleItem"
+                android:layout_marginLeft="3dp"
+                android:text="ABC" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/num9"
+            style="@style/KeyBroadKeyStyle" />
+
+        <LinearLayout
+            android:id="@+id/key_number_delete"
+            android:gravity="center"
+            style="@style/KeyBroadKeyStyle">
+
+            <ImageView
+                android:src="@mipmap/icon_keyboard_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
