@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     super.handleMessage(msg);
                     if (msg.what == MSG_CPU) {
                         Log.e(TAG, "handleMessage: MSG_CPU");
+                        // 间隔500毫秒读出数据
                         workHandler.sendEmptyMessageDelayed(MSG_CPU, NORMAL_SAMPLING_TIME);
                     }
                 }
