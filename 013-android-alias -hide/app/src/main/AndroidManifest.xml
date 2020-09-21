@@ -4,39 +4,50 @@
     package="com.learn.alias">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="测试"
+        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.learn.alias.target.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.learn.alias.AliasActivity"
+        <!-- 外部要启动的Activity -->
+        <activity
+            android:name="com.learn.alias.target.AliasMainActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:finishOnTaskLaunch="false"
+            android:launchMode="singleInstance">
+        </activity>
+
+        <!-- Alias图标启动的Activity -->
+        <activity
+            android:name="com.learn.alias.target.AliasActivity"
             android:excludeFromRecents="true"
             android:exported="false"
             android:finishOnTaskLaunch="false"
             android:launchMode="singleInstance"
-            android:theme="@style/KeepLiveTheme"/>
+            android:theme="@style/KeepLiveTheme" />
 
-<!--        <activity-alias
-            android:name="com.learn.alias.Alias1Activity"
-            android:launchMode="singleTask"
+        <!-- activity-alias配置 -->
+        <activity-alias
+            android:name="com.learn.alias.target.Alias1Activity"
             android:enabled="false"
             android:icon="@drawable/alias_icon"
             android:label=""
-            android:targetActivity="com.learn.alias.AliasActivity">
+            android:launchMode="singleTask"
+            android:targetActivity="com.learn.alias.target.AliasActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity-alias>-->
+        </activity-alias>
     </application>
 
 </manifest>
