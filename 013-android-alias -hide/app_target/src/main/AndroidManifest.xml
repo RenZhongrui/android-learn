@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.learn.alias.target.MainActivity">
+        <activity android:name="com.learn.alias.target.AliasMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -19,7 +19,7 @@
 
         <!-- 外部要启动的Activity -->
         <activity
-            android:name="com.learn.alias.target.AliasMainActivity"
+            android:name="com.learn.alias.target.MainActivity"
             android:excludeFromRecents="true"
             android:exported="true"
             android:finishOnTaskLaunch="false"
