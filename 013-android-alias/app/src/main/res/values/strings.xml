@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">013-android-alias</string>
+    <!--<string name="app_name">013-android-alias</string>-->
+    <string name="app_name">013-android-target</string>
 </resources>
