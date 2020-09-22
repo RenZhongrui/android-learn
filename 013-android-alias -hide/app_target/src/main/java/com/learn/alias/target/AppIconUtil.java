@@ -14,33 +14,29 @@ public class AppIconUtil {
     /**
      *
      * @param context
-     * @param main com.learn.alias.target.MainActivity
-     * @param alias com.learn.alias.target.AliasActivity
+     * @param main com.learn.alias.MainActivity
+     * @param alias com.learn.alias.AliasActivity
      */
     public static void set(Context context, String main, String alias) {
-        ComponentName indexActivityNormal = new ComponentName(context, main);
-        ComponentName indexActivity11 = new ComponentName(context, alias);
-        disableComponent(context, indexActivityNormal);
-        enableComponent(context, indexActivity11);
+        disableComponent(context, main);
+        enableComponent(context, alias);
     }
 
     /**
+     *  //此方法用以启用和禁用组件，会覆盖Androidmanifest文件下定义的属性
      * 启动组件
-     *
-     * @param componentName 组件名
      */
-    public static void enableComponent(Context context, ComponentName componentName) {
-        //此方法用以启用和禁用组件，会覆盖Androidmanifest文件下定义的属性
+    public static void enableComponent(Context context, String clazzName) {
+        ComponentName componentName =  new ComponentName(context, clazzName);
         PackageManager mPackageManager = context.getPackageManager();
         mPackageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
     }
 
     /**
      * 禁用组件
-     *
-     * @param componentName 组件名
      */
-    public static void disableComponent(Context context, ComponentName componentName) {
+    public static void disableComponent(Context context, String clazzName) {
+        ComponentName componentName =  new ComponentName(context, clazzName);
         PackageManager mPackageManager = context.getPackageManager();
         mPackageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
     }

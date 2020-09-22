@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.learn.alias.target.AliasMainActivity">
+        <activity
+            android:name="com.learn.alias.target.AliasMainActivity"
+            android:theme="@style/KeepLiveTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -38,7 +40,7 @@
         <!-- activity-alias配置 -->
         <activity-alias
             android:name="com.learn.alias.target.Alias1Activity"
-            android:enabled="false"
+            android:enabled="true"
             android:icon="@drawable/alias_icon"
             android:label=""
             android:launchMode="singleTask"
