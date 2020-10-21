@@ -16,6 +16,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <data android:host="MainActivity" android:scheme="com.learn.alias.target"
+                    tools:ignore="AppLinkUrlError" />
             </intent-filter>
         </activity>
 

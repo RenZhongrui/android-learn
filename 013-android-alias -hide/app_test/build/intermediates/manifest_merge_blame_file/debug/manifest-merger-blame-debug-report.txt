@@ -1,0 +1,45 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.learn.alias"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml
+10
+11    <application
+11-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:6:5-21:19
+12        android:allowBackup="true"
+12-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:7:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.0.1] C:\Users\admin\.gradle\caches\transforms-2\files-2.1\46da25c3e2ae6308b2227b660caa604d\core-1.0.1\AndroidManifest.xml:22:18-86
+14        android:debuggable="true"
+15        android:icon="@mipmap/ic_launcher"
+15-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:8:9-43
+16        android:label="测试"
+16-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:9:9-27
+17        android:supportsRtl="true"
+17-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:10:9-35
+18        android:testOnly="true"
+19        android:theme="@style/AppTheme" >
+19-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:11:9-40
+20        <activity android:name="com.learn.alias.MainActivity" >
+20-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:13:9-19:20
+20-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:13:19-47
+21            <intent-filter>
+21-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:14:13-18:29
+22                <action android:name="android.intent.action.MAIN" />
+22-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:15:17-69
+22-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:15:25-66
+23
+24                <category android:name="android.intent.category.LAUNCHER" />
+24-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:17:17-77
+24-->D:\Learn\android-learn\013-android-alias -hide\app_test\src\main\AndroidManifest.xml:17:27-74
+25            </intent-filter>
+26        </activity>
+27    </application>
+28
+29</manifest>

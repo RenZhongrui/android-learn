@@ -1,2 +1,2 @@
-include ':app', ':PluginApp'
+include ':app', ':PluginApp', ':lib_test'
 rootProject.name='004-android-hook-activity'
