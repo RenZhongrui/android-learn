@@ -24,12 +24,20 @@ public class FirstFragment extends Fragment {
 
     public void initView(View view) {
         Button btn_to_fragment1 = view.findViewById(R.id.btn_to_fragment1);
+        Button btn_to_activity2 = view.findViewById(R.id.btn_to_activity2);
         btn_to_fragment1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 跳转到第二个Fragment
                 Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment);
 
+            }
+        });
+        btn_to_activity2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 跳转到第二个Activity
+                Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondActivity);
             }
         });
     }

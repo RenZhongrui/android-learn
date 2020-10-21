@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_secondActivity"
+            app:destination="@id/secondActivity" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.learn.jetpack.navigation.SecondFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" />
+    <activity
+        android:id="@+id/secondActivity"
+        android:name="com.learn.jetpack.navigation.SecondActivity"
+        android:label="activity_second"
+        tools:layout="@layout/activity_second" />
 </navigation>

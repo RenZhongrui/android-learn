@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/PluginApp" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/lib_test" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
