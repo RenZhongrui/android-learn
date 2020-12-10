@@ -1,19 +1,14 @@
 package com.learn.jetpack.navigation;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
 
-/**
- * https://www.jianshu.com/p/9c918016366e
- */
-public class MainActivity extends AppCompatActivity {
+public class Main3Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main3);
     }
-
 }

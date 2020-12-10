@@ -28,8 +28,10 @@ public class FirstFragment extends Fragment {
         btn_to_fragment1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("test", "test");
                 // 跳转到第二个Fragment
-                Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment);
+                Navigation.findNavController(view).navigate(R.id.action_firstFragment_to_secondFragment, bundle);
 
             }
         });
