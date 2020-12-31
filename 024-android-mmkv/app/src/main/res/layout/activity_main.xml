@@ -8,9 +8,21 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_open"
-        android:text="打开GPS"
+        android:id="@+id/btn_write"
+        android:text="写入数据"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_read"
+        android:text="读取数据"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_dir"
+        android:text="mmkv文件路径"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <TextView
@@ -18,16 +30,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <ImageView
-        android:id="@+id/iv_glide"
-        android:layout_marginTop="200dp"
-        android:layout_width="300dp"
-        android:layout_height="300dp"/>
-
-    <ImageView
-        android:id="@+id/iv_gif"
-        android:layout_marginTop="200dp"
-        android:layout_width="300dp"
-        android:layout_height="300dp"/>
 
 </LinearLayout>

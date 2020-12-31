@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageView iv_glide = findViewById(R.id.iv_glide);
+        ImageView iv_gif = findViewById(R.id.iv_gif);
         Button btn_open = findViewById(R.id.btn_open);
         final boolean open = GpsUtil.isOpen(this);
         Log.e(TAG, "onCreate: " + open);
@@ -37,7 +39,13 @@ public class MainActivity extends AppCompatActivity {
         });
         tv_result = findViewById(R.id.tv_result);
         tv_result.setText(open + "");
-        Glide.with(this).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607577387022&di=9cbaf5c98d0623cb1dcc1fc957807be3&imgtype=0&src=http%3A%2F%2Fpics7.baidu.com%2Ffeed%2Fd53f8794a4c27d1e4dfdcc92d41f0f68dfc438da.jpeg%3Ftoken%3Da99dd503d74f84fd6f1bdf83b47f83b3").into(iv_glide);
+        Glide.with(this)
+                .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607577387022&di=9cbaf5c98d0623cb1dcc1fc957807be3&imgtype=0&src=http%3A%2F%2Fpics7.baidu.com%2Ffeed%2Fd53f8794a4c27d1e4dfdcc92d41f0f68dfc438da.jpeg%3Ftoken%3Da99dd503d74f84fd6f1bdf83b47f83b3")
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(false)
+                .into(iv_glide);
+
+        Glide.with(this).load(R.drawable.test).asGif().into(iv_gif);
 
         final LocationManager mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         getContentResolver().registerContentObserver(Settings.Secure.getUriFor(Settings.System.LOCATION_PROVIDERS_ALLOWED),
