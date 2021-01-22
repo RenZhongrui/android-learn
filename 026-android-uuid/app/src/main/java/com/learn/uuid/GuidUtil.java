@@ -100,7 +100,7 @@ public class GuidUtil {
     /**
      * 保存到文件
      */
-    private static void setToFile(String guid) throws Exception {
+    public static void setToFile(String guid) throws Exception {
         File file = new File(filePath);
         if (file.exists()) {
             file.delete();
