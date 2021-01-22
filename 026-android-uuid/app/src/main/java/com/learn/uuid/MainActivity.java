@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if (allGranted) {
                             String uuid = null;
                             try {
-                                uuid = UuidUtil.createUUID(MainActivity.this);
+                                uuid = GuidUtil.createGUID(MainActivity.this);
                               /*  UuidUtil.setToDB(MainActivity.this, "1234567890");
                                 uuid = UuidUtil.getFromSystemDB(MainActivity.this);*/
 
