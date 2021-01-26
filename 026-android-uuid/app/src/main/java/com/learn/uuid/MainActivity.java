@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
                         if (allGranted) {
                             String guid = null;
+                            //MediaDownload.queryUri(MainActivity.this);
+                            MediaDownload.insertFile(MainActivity.this, "1234567890");
                             try {
                                 guid = GuidUtil.createGUID(MainActivity.this);
                                 //GuidUtil.setToMediaStore(MainActivity.this, "654321");
