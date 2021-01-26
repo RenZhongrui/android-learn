@@ -17,6 +17,15 @@ android {
         }
     }
 
+    signingConfigs {
+        debug {
+            keyAlias 'agree-agent'
+            keyPassword 'agree-agent'
+            storeFile file('../keystore/agent.keystore')
+            storePassword 'agree-agent'
+        }
+    }
+
     lintOptions {
         abortOnError false
     }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,9 +41,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
                         if (allGranted) {
-                            String uuid = null;
+                            String guid = null;
                             try {
-                                uuid = GuidUtil.createGUID(MainActivity.this);
+                                guid = GuidUtil.createGUID(MainActivity.this);
+                                //GuidUtil.setToMediaStore(MainActivity.this, "654321");
+                                //String guid = GuidUtil.getFromMediaFile(MainActivity.this);
                               /*  UuidUtil.setToDB(MainActivity.this, "1234567890");
                                 uuid = UuidUtil.getFromSystemDB(MainActivity.this);*/
 
@@ -50,8 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 uuid = UuidUtil.getFromSystemDB(MainActivity.this);
                                 UuidUtil.updateDB(MainActivity.this, "11111111111");
                                 uuid = UuidUtil.getFromSystemDB(MainActivity.this);*/
-                                tv_result.setText(uuid);
-                                Log.e(TAG, "onCreate: " + uuid);
+                                tv_result.setText(guid);
+                                Log.e(TAG, "onCreate: " + guid);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
