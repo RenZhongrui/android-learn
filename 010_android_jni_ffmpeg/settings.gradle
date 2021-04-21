@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='010_android_jni_ffmpeg'
