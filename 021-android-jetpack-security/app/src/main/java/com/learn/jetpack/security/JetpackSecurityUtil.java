@@ -38,7 +38,7 @@ public class JetpackSecurityUtil {
         String masterKeyAlias = "";
         // 6.0以上
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            // 废弃的写法
+            // 废弃的写法(库1.0.0)
             KeyGenParameterSpec keyGenParameterSpec = MasterKeys.AES256_GCM_SPEC;
             masterKeyAlias = MasterKeys.getOrCreate(keyGenParameterSpec);
         }
