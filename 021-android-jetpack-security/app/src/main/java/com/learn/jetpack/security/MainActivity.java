@@ -8,6 +8,7 @@ import androidx.security.crypto.MasterKey;
 import androidx.security.crypto.MasterKeys;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,12 +35,13 @@ public class MainActivity extends AppCompatActivity {
     private String path;
     private String encryptPath;
     private String plainPath;
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        mContext = this;
         PermissionX.init(this)
                 .permissions(Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS,
                         Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -51,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/download/demo.mp4";
-        encryptPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/download/demo.encrypt.mp4";
-        plainPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/download/demo.plain.mp4";
+        path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/download/demo.jpg";
+        encryptPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/download/demo.encrypt.jpg";
+        plainPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/download/demo.plain.jpg";
 
         btn_sp_encrypt = findViewById(R.id.btn_sp_encrypt);
         btn_sp_decrypt = findViewById(R.id.btn_sp_decrypt);
@@ -64,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    encryptFile();
+                    // encryptFile();
+                    JetpackSecurityUtil.encryptFile(mContext, encryptPath, path);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -75,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    decryptFile();
+                    //decryptFile();
+                    JetpackSecurityUtil.decryptFile(mContext, encryptPath, plainPath);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -86,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    encryptSP();
+                    // encryptSP();
+                    JetpackSecurityUtil.setString(mContext, "password", "123456");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -97,7 +102,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    decryptSP();
+                    //decryptSP();
+                    String password = JetpackSecurityUtil.getString(mContext, "password");
+                    Log.e(TAG, "decryptSP: " + password);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -105,6 +112,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 文件加密，注意要写到子线程运行
+     *
+     * @throws Exception
+     */
     private void encryptFile() throws Exception {
         String masterKeyAlias = "";
         // 6.0以上
